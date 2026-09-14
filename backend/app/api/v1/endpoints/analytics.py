@@ -4,7 +4,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api import deps
 from app.schemas.analytics import SubjectAnalyticsOut, SubjectExamPriorityOut
+from app.schemas.topic_performance import SubjectTopicPerformanceOut
 from app.services.analytics import analytics_service
+from app.services.student_performance import student_performance_service
 from app.models.user import User
 
 router = APIRouter()
@@ -55,6 +57,31 @@ async def get_subject_exam_priority(
         )
 
     return await analytics_service.get_exam_priority_report(
+        db=db,
+        user_id=current_user.id,
+        subject_id=subject_id,
+    )
+
+
+@router.get("/subjects/{subject_id}/topic-performance", response_model=SubjectTopicPerformanceOut)
+async def get_subject_topic_performance(
+    subject_id: uuid.UUID,
+    db: AsyncSession = Depends(deps.get_db),
+    current_user: User = Depends(deps.get_current_user),
+):
+    """
+    Retrieve topic-level student performance and mastery metrics for a course subject.
+    Distinguishes topics with no student evaluations (mastery = null) from poor performance (mastery = 0.0).
+    """
+    from app.models.subject import Subject
+    subject = await db.get(Subject, subject_id)
+    if not subject:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="The referenced Course Subject ID does not exist.",
+        )
+
+    return await student_performance_service.get_subject_topic_performance(
         db=db,
         user_id=current_user.id,
         subject_id=subject_id,
