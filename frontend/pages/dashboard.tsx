@@ -24,6 +24,7 @@ import {
   HelpCircle as QuestionIcon
 } from "lucide-react";
 import { api } from "../services/api";
+import { ExamPriorityDashboard } from "../components/exam-intelligence/ExamPriorityDashboard";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -431,6 +432,7 @@ export default function Dashboard() {
               { id: "chat", name: "AI Study Copilot", icon: BrainCircuit },
               { id: "planner", name: "Study Planner", icon: CalendarDays },
               { id: "quizzes", name: "Practice Quizzes", icon: ListTodo },
+              { id: "priority", name: "Exam Priority", icon: Sparkles },
               { id: "analytics", name: "Performance Stats", icon: LineChart }
             ].map((tab) => {
               const Icon = tab.icon;
@@ -1031,6 +1033,14 @@ export default function Dashboard() {
                   </div>
                 </div>
               </div>
+            )}
+
+            {/* TAB CONTENT: EXAM PRIORITY INTELLIGENCE */}
+            {activeTab === "priority" && activeSubject && (
+              <ExamPriorityDashboard
+                key={activeSubject.id}
+                subjectId={activeSubject.id}
+              />
             )}
 
             {/* TAB CONTENT: ANALYTICS DASHBOARD */}

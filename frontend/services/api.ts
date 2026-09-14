@@ -234,5 +234,13 @@ export const api = {
       headers: getHeaders()
     });
     return handleResponse(res);
+  },
+
+  async getSubjectExamPriority(subjectId: string) {
+    const res = await fetch(`${BASE_URL}/analytics/subjects/${subjectId}/exam-priority`, {
+      method: "GET",
+      headers: getHeaders()
+    });
+    return handleResponse(res);
   }
 };
