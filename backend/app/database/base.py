@@ -16,4 +16,5 @@ from app.models.pyq_topic import (  # noqa
     PYQPaper,
     PYQQuestionOccurrence,
     QuestionVariant,
+    TopicResolution,
 )

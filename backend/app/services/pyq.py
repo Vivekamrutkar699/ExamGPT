@@ -7,6 +7,7 @@ from app.models.question import Question
 from app.schemas.question import QuestionCreate, PYQAnalyticsOut
 from app.repositories.question import question_repository
 from app.document_processing.metadata import metadata_extractor
+from app.services.pyq_topic_ingestion import pyq_topic_ingestion_service
 
 
 class PYQService:
@@ -26,7 +27,7 @@ class PYQService:
         # Matches bracketed weights like [10M], [5 Marks], [6M], (8 Marks)
         marks_pattern = re.compile(r'[\(\[]\s*([0-9]+)\s*(?:M|marks|Marks|Mark)\s*[\)\]]', re.IGNORECASE)
         # Prefixes to strip: e.g. "Q1. ", "a) ", "1. ", "Q.2 "
-        prefix_pattern = re.compile(r'^(?:Q\d+[\.:]?\s*|Q\s*[\.:]?\s*|\d+[\.:]?\s*|[a-z]\)\s*)', re.IGNORECASE)
+        prefix_pattern = re.compile(r'^(?P<number>(?:Q\d+|Q|\d+|[a-z]))[\.:\)]?\s*', re.IGNORECASE)
 
         for line in lines:
             line = line.strip()
@@ -40,12 +41,15 @@ class PYQService:
                 # Remove the marks brackets
                 clean_text = marks_pattern.sub("", line).strip()
                 # Remove question number prefix
+                prefix_match = prefix_pattern.match(clean_text)
+                question_number = prefix_match.group("number") if prefix_match else None
                 clean_text = prefix_pattern.sub("", clean_text).strip()
                 
                 if len(clean_text) >= 10:
                     parsed_questions.append({
                         "text": clean_text,
-                        "marks_weight": marks_val
+                        "marks_weight": marks_val,
+                        "question_number": question_number,
                     })
 
         return parsed_questions
@@ -54,54 +58,15 @@ class PYQService:
         self,
         db: AsyncSession,
         subject_id: uuid.UUID,
-        text: str
+        text: str,
+        paper_metadata: Dict[str, Any] | None = None,
     ) -> List[Question]:
         """
-        Processes exam paper text. Extracts questions, performs semantic matching 
-        to count duplicates, and commits them.
+        Processes a real paper into topic-aware variants and occurrences while
+        returning legacy-compatible Question records.
         """
         parsed_data = self._parse_questions_from_text(text)
-        ingested_questions = []
-
-        for item in parsed_data:
-            q_text = item["text"]
-            marks = item["marks_weight"]
-
-            # Map syllabus unit using metadata heuristics extractor
-            meta = metadata_extractor.extract_metadata(q_text)
-            unit_tag = meta["unit_tag"] or "General/Unmapped"
-
-            # Check database for semantically similar questions (threshold 0.78)
-            similar_q = await question_repository.find_similar(
-                db=db,
-                subject_id=subject_id,
-                text=q_text,
-                threshold=0.78
-            )
-
-            if similar_q:
-                # Semantic duplicate found: increment occurrences count
-                similar_q.occurrences += 1
-                # Inherit unit tag if missing
-                if not similar_q.unit_tag or similar_q.unit_tag == "General/Unmapped":
-                    similar_q.unit_tag = unit_tag
-                await db.commit()
-                await db.refresh(similar_q)
-                ingested_questions.append(similar_q)
-            else:
-                # New question entry
-                q_in = QuestionCreate(
-                    subject_id=subject_id,
-                    text=q_text,
-                    marks_weight=marks,
-                    unit_tag=unit_tag,
-                    is_pyq=True,
-                    occurrences=1
-                )
-                new_q = await question_repository.create(db, obj_in=q_in)
-                ingested_questions.append(new_q)
-
-        return ingested_questions
+        return await pyq_topic_ingestion_service.ingest(db, subject_id, parsed_data, text, paper_metadata)
 
     async def get_subject_analytics(
         self,

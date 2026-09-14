@@ -24,6 +24,7 @@ class PYQPaper(Base):
     """A real uploaded examination paper that contains PYQ occurrences."""
 
     __tablename__ = "pyq_paper"
+    __table_args__ = (UniqueConstraint("subject_id", "content_hash", name="uq_pyq_paper_subject_hash"),)
 
     id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
@@ -68,6 +69,9 @@ class CanonicalTopic(Base):
         Boolean, default=False, nullable=False
     )
     unit_tag: Mapped[Optional[str]] = mapped_column(String(100), nullable=True)
+    compatibility_question_id: Mapped[Optional[uuid.UUID]] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("question.id", ondelete="SET NULL"), nullable=True, unique=True
+    )
     embedding_json: Mapped[Optional[list[float]]] = mapped_column(JSON, nullable=True)
     embedding_model_version: Mapped[Optional[str]] = mapped_column(
         String(100), nullable=True
@@ -158,3 +162,27 @@ class PYQQuestionOccurrence(Base):
     created_at: Mapped[datetime] = mapped_column(
         DateTime, default=datetime.utcnow, nullable=False
     )
+
+
+class TopicResolution(Base):
+    """Immutable evidence for a non-exact topic-resolution decision."""
+
+    __tablename__ = "topic_resolution"
+
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    variant_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("question_variant.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    best_topic_id: Mapped[Optional[uuid.UUID]] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("canonical_topic.id", ondelete="SET NULL"), nullable=True
+    )
+    second_topic_id: Mapped[Optional[uuid.UUID]] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("canonical_topic.id", ondelete="SET NULL"), nullable=True
+    )
+    best_similarity_score: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
+    second_similarity_score: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
+    similarity_threshold: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
+    ambiguity_margin: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
+    matcher_version: Mapped[str] = mapped_column(String(100), nullable=False)
+    resolution_type: Mapped[str] = mapped_column(String(50), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)

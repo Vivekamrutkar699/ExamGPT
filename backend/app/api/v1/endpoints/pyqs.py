@@ -1,5 +1,5 @@
 import uuid
-from typing import List
+from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from pydantic import BaseModel
@@ -15,6 +15,11 @@ router = APIRouter()
 
 class PYQTextInput(BaseModel):
     paper_text: str
+    paper_title: Optional[str] = None
+    exam_year: Optional[int] = None
+    exam_session: Optional[str] = None
+    source_filename: Optional[str] = None
+    source_reference: Optional[str] = None
 
 
 @router.post("/subjects/{subject_id}/upload", response_model=List[QuestionOut], status_code=status.HTTP_201_CREATED)
@@ -40,7 +45,8 @@ async def upload_pyq_paper_text(
     return await pyq_service.ingest_pyq_text(
         db=db,
         subject_id=subject_id,
-        text=input_data.paper_text
+        text=input_data.paper_text,
+        paper_metadata=input_data.model_dump(exclude={"paper_text"}, exclude_none=True),
     )
 
 

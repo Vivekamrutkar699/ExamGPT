@@ -37,6 +37,9 @@ class Settings(BaseSettings):
     OPENAI_API_BASE: Optional[str] = None
     EMBEDDING_MODEL: str = "all-MiniLM-L6-v2"
     LLM_MODEL: str = "gpt-3.5-turbo"
+    PYQ_TOPIC_MATCH_THRESHOLD: Optional[float] = None
+    PYQ_TOPIC_AMBIGUITY_MARGIN: Optional[float] = None
+    PYQ_TOPIC_MATCHER_VERSION: str = "sentence-transformer-topic-v1"
 
     @field_validator("BACKEND_CORS_ORIGINS", mode="before")
     @classmethod
