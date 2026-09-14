@@ -11,3 +11,9 @@ from app.models.study_plan import StudyPlan  # noqa
 from app.models.quiz import Quiz  # noqa
 from app.models.answers_evaluation import AnswersEvaluation  # noqa
 from app.models.chat import ChatSession, ChatMessage  # noqa
+from app.models.pyq_topic import (  # noqa
+    CanonicalTopic,
+    PYQPaper,
+    PYQQuestionOccurrence,
+    QuestionVariant,
+)
