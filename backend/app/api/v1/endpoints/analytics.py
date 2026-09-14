@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api import deps
-from app.schemas.analytics import SubjectAnalyticsOut
+from app.schemas.analytics import SubjectAnalyticsOut, SubjectExamPriorityOut
 from app.services.analytics import analytics_service
 from app.models.user import User
 
@@ -33,4 +33,29 @@ async def get_subject_analytics_report(
         db=db,
         user_id=current_user.id,
         subject_id=subject_id
+    )
+
+
+@router.get("/subjects/{subject_id}/exam-priority", response_model=SubjectExamPriorityOut)
+async def get_subject_exam_priority(
+    subject_id: uuid.UUID,
+    db: AsyncSession = Depends(deps.get_db),
+    current_user: User = Depends(deps.get_current_user),
+):
+    """
+    Retrieve evidence-based Exam Priority and revision recommendations across
+    canonical topics for a course subject.
+    """
+    from app.models.subject import Subject
+    subject = await db.get(Subject, subject_id)
+    if not subject:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="The referenced Course Subject ID does not exist.",
+        )
+
+    return await analytics_service.get_exam_priority_report(
+        db=db,
+        user_id=current_user.id,
+        subject_id=subject_id,
     )
