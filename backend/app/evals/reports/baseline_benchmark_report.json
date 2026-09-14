@@ -3093,11 +3093,11 @@
       "configuration_name": "hybrid_reranked",
       "aggregate_metrics": {
         "total_cases": 35,
-        "mean_recall_at_3": 0.9714,
+        "mean_recall_at_3": 1.0,
         "mean_recall_at_5": 1.0,
-        "mean_mrr": 0.9786,
+        "mean_mrr": 0.981,
         "mean_context_relevance": 0.4686,
-        "perfect_recall_at_3_count": 34,
+        "perfect_recall_at_3_count": 35,
         "perfect_recall_at_5_count": 35,
         "zero_mrr_count": 0
       },
@@ -3116,9 +3116,9 @@
           ],
           "retrieved_chunk_ids": [
             "chunk_spos_u1_001",
-            "chunk_spos_u1_004",
             "chunk_spos_u1_002",
             "chunk_spos_u3_003",
+            "chunk_spos_u1_004",
             "chunk_cn_u1_001"
           ],
           "missed_golden_chunk_ids": [],
@@ -3233,8 +3233,8 @@
             "chunk_spos_u2_001",
             "chunk_spos_u1_003",
             "chunk_spos_u2_002",
-            "chunk_spos_u1_004",
-            "chunk_spos_u4_001"
+            "chunk_spos_u4_001",
+            "chunk_spos_u1_004"
           ],
           "missed_golden_chunk_ids": [],
           "matched_concepts": [
@@ -3291,8 +3291,8 @@
             "chunk_spos_u2_003",
             "chunk_spos_u2_001",
             "chunk_spos_u1_004",
-            "chunk_spos_u2_002",
-            "chunk_cn_u1_001"
+            "chunk_cn_u1_001",
+            "chunk_spos_u2_002"
           ],
           "missed_golden_chunk_ids": [],
           "matched_concepts": [
@@ -3376,10 +3376,10 @@
           ],
           "retrieved_chunk_ids": [
             "chunk_spos_u3_003",
-            "chunk_spos_u4_001",
-            "chunk_spos_u5_001",
             "chunk_spos_u3_001",
-            "chunk_spos_u1_002"
+            "chunk_spos_u1_002",
+            "chunk_spos_u4_001",
+            "chunk_spos_u5_001"
           ],
           "missed_golden_chunk_ids": [],
           "matched_concepts": [
@@ -3407,8 +3407,8 @@
             "chunk_spos_u4_001",
             "chunk_spos_u3_001",
             "chunk_spos_u4_003",
-            "chunk_spos_u1_002",
-            "chunk_spos_u3_003"
+            "chunk_spos_u3_003",
+            "chunk_spos_u1_002"
           ],
           "missed_golden_chunk_ids": [],
           "matched_concepts": [
@@ -3493,9 +3493,9 @@
           "retrieved_chunk_ids": [
             "chunk_spos_u5_001",
             "chunk_spos_u3_001",
-            "chunk_spos_u1_001",
+            "chunk_spos_u3_003",
             "chunk_spos_u1_002",
-            "chunk_spos_u3_003"
+            "chunk_spos_u1_001"
           ],
           "missed_golden_chunk_ids": [],
           "matched_concepts": [
@@ -3521,10 +3521,10 @@
           ],
           "retrieved_chunk_ids": [
             "chunk_spos_u5_002",
+            "chunk_spos_u3_002",
             "chunk_spos_u6_001",
             "chunk_spos_u5_001",
-            "chunk_cn_u3_002",
-            "chunk_spos_u3_002"
+            "chunk_cn_u3_002"
           ],
           "missed_golden_chunk_ids": [],
           "matched_concepts": [
@@ -3552,8 +3552,8 @@
             "chunk_spos_u6_001",
             "chunk_spos_u3_002",
             "chunk_spos_u5_002",
-            "chunk_cn_u3_002",
-            "chunk_spos_u4_002"
+            "chunk_spos_u4_002",
+            "chunk_cn_u3_002"
           ],
           "missed_golden_chunk_ids": [],
           "matched_concepts": [
@@ -3579,8 +3579,8 @@
           ],
           "retrieved_chunk_ids": [
             "chunk_cn_u1_001",
-            "chunk_cn_u4_001",
             "chunk_cn_u5_001",
+            "chunk_cn_u4_001",
             "chunk_cn_u3_001",
             "chunk_spos_u3_003"
           ],
@@ -3637,8 +3637,8 @@
           ],
           "retrieved_chunk_ids": [
             "chunk_cn_u2_001",
-            "chunk_cn_u1_002",
             "chunk_cn_u2_002",
+            "chunk_cn_u1_002",
             "chunk_spos_u3_003",
             "chunk_spos_u1_001"
           ],
@@ -3724,10 +3724,10 @@
           ],
           "retrieved_chunk_ids": [
             "chunk_cn_u3_002",
-            "chunk_cn_u1_001",
             "chunk_spos_u6_001",
-            "chunk_spos_u5_002",
-            "chunk_spos_u3_002"
+            "chunk_cn_u1_001",
+            "chunk_spos_u3_002",
+            "chunk_spos_u5_002"
           ],
           "missed_golden_chunk_ids": [],
           "matched_concepts": [
@@ -3744,19 +3744,19 @@
           "subject": "CN",
           "unit": "Unit 4",
           "query": "What are the main differences between TCP and UDP protocols?",
-          "recall_at_3": 0.0,
+          "recall_at_3": 1.0,
           "recall_at_5": 1.0,
-          "mrr": 0.25,
+          "mrr": 0.3333,
           "context_relevance": 0.6,
           "golden_chunk_ids": [
             "chunk_cn_u4_001"
           ],
           "retrieved_chunk_ids": [
-            "chunk_cn_u1_001",
-            "chunk_spos_u1_004",
             "chunk_cn_u5_001",
+            "chunk_cn_u1_001",
             "chunk_cn_u4_001",
-            "chunk_cn_u2_002"
+            "chunk_cn_u2_002",
+            "chunk_spos_u1_004"
           ],
           "missed_golden_chunk_ids": [],
           "matched_concepts": [
@@ -3840,10 +3840,10 @@
           ],
           "retrieved_chunk_ids": [
             "chunk_dbms_u1_002",
-            "chunk_dbms_u2_001",
-            "chunk_spos_u3_001",
             "chunk_dbms_u1_001",
-            "chunk_dbms_u4_001"
+            "chunk_dbms_u2_001",
+            "chunk_dbms_u4_001",
+            "chunk_spos_u3_001"
           ],
           "missed_golden_chunk_ids": [],
           "matched_concepts": [
@@ -3871,8 +3871,8 @@
             "chunk_dbms_u2_001",
             "chunk_dbms_u4_001",
             "chunk_toc_u3_001",
-            "chunk_spos_u1_003",
-            "chunk_spos_u2_001"
+            "chunk_spos_u2_001",
+            "chunk_spos_u1_003"
           ],
           "missed_golden_chunk_ids": [],
           "matched_concepts": [
@@ -4014,8 +4014,8 @@
           ],
           "retrieved_chunk_ids": [
             "chunk_toc_u1_002",
-            "chunk_spos_u1_004",
             "chunk_toc_u4_001",
+            "chunk_spos_u1_004",
             "chunk_spos_u5_001",
             "chunk_spos_u3_002"
           ],
@@ -4072,8 +4072,8 @@
           "retrieved_chunk_ids": [
             "chunk_toc_u3_001",
             "chunk_spos_u2_002",
-            "chunk_toc_u1_001",
             "chunk_spos_u3_001",
+            "chunk_toc_u1_001",
             "chunk_spos_u2_003"
           ],
           "missed_golden_chunk_ids": [],
