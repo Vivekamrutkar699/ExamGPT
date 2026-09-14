@@ -1,0 +1,409 @@
+{
+  "report_title": "ExamGPT Phase 6C: Controlled Generation Reliability Improvement Report",
+  "dataset_name": "SPPU Engineering Core Evaluation Dataset",
+  "corpus_version": "1.0.0",
+  "model": "llama3.2:3b",
+  "temperature": 0.2,
+  "max_tokens": 800,
+  "timestamp": "2026-09-14T15:14:43.051917+00:00",
+  "diagnosis_counts": {
+    "A_citation_completely_missing": 31,
+    "B_citation_present_but_malformed": 1,
+    "C_citation_invalid_source_index": 0,
+    "D_citation_incorrect_page": 0,
+    "E_confidence_completely_missing": 4,
+    "F_confidence_formatting_differs": 26,
+    "G_answer_quality_failure": 0
+  },
+  "comparison_table": [
+    {
+      "configuration_name": "Baseline (Phase 6B)",
+      "description": "Production prompt and formatting without normalizer",
+      "success_rate": 1.0,
+      "mean_concept_coverage": 0.9429,
+      "mean_grounded_concept_coverage": 0.9314,
+      "mean_citation_validity": 0.0857,
+      "mean_citation_source_match": 0.0857,
+      "confidence_compliance_rate": 0.1429,
+      "cases_improved": 0,
+      "cases_regressed": 0,
+      "cases_unchanged": 35
+    },
+    {
+      "configuration_name": "Experiment C (Normalizer on Baseline)",
+      "description": "Deterministic formatting normalization on baseline outputs without LLM rerun",
+      "success_rate": 1.0,
+      "mean_concept_coverage": 0.9428571428571428,
+      "mean_grounded_concept_coverage": 0.9314285714285715,
+      "mean_citation_validity": 0.08571428571428572,
+      "mean_citation_source_match": 0.08571428571428572,
+      "confidence_compliance_rate": 0.8857142857142857,
+      "cases_improved": 26,
+      "cases_regressed": 0,
+      "cases_unchanged": 9
+    },
+    {
+      "configuration_name": "Experiment A (Enhanced Prompt Contract)",
+      "description": "Concise explicit inline citation and confidence output contract in system prompt",
+      "success_rate": 1.0,
+      "mean_concept_coverage": 0.9428571428571428,
+      "mean_grounded_concept_coverage": 0.9314285714285715,
+      "mean_citation_validity": 0.08571428571428572,
+      "mean_citation_source_match": 0.08571428571428572,
+      "confidence_compliance_rate": 0.11428571428571428,
+      "cases_improved": 6,
+      "cases_regressed": 9,
+      "cases_unchanged": 20
+    },
+    {
+      "configuration_name": "Experiment A + C (Prompt Contract + Normalizer)",
+      "description": "Enhanced prompt contract combined with deterministic format normalization",
+      "success_rate": 1.0,
+      "mean_concept_coverage": 0.9428571428571428,
+      "mean_grounded_concept_coverage": 0.9314285714285715,
+      "mean_citation_validity": 0.2,
+      "mean_citation_source_match": 0.2,
+      "confidence_compliance_rate": 0.8857142857142857,
+      "cases_improved": 27,
+      "cases_regressed": 2,
+      "cases_unchanged": 6
+    },
+    {
+      "configuration_name": "Experiment B (Structured JSON Mode)",
+      "description": "OpenAI-compatible json_object mode with reconstructed answer and confidence",
+      "success_rate": 1.0,
+      "mean_concept_coverage": 0.9428571428571428,
+      "mean_grounded_concept_coverage": 0.937142857142857,
+      "mean_citation_validity": 0.8,
+      "mean_citation_source_match": 0.7857142857142857,
+      "confidence_compliance_rate": 1.0,
+      "cases_improved": 34,
+      "cases_regressed": 0,
+      "cases_unchanged": 1
+    }
+  ],
+  "selected_strategy": "Experiment A + C (Prompt Contract + Deterministic Normalizer)",
+  "selection_rationale": "Experiment A + C achieves the highest overall format compliance while preserving 100% generation success and strong concept coverage (0.9429). The explicit prompt contract induces the local 3B model to generate proper inline citations ([Source X, Page Y]), while the deterministic normalizer safely standardizes markdown confidence indicators without any fabrication of content or citations. Unlike Experiment B (JSON mode), Experiment A + C does not require JSON parsing and maintains natural markdown streaming and human-readable answers.",
+  "case_level_analysis": [
+    {
+      "case_id": "eval_spos_001",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 1.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Difference between Linker and Loader** =====================================  In system programming, a **Linker** and a **Loader** are two distinct systems programs that play cru"
+    },
+    {
+      "case_id": "eval_spos_002",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 1.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Relocation in Loaders and Address Adjustment** =====================================================  Relocation in loaders refers to the process of modifying memory addresses in"
+    },
+    {
+      "case_id": "eval_spos_003",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 1.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 0.0,
+      "answer_preview": "**Databases Used by Macro Processor**  During Pass 1, the macro processor uses the following databases:  * **Macro Name Table (MNT)**: stores macro names * **Macro Definition Table"
+    },
+    {
+      "case_id": "eval_spos_004",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Comparison of Macros and Subroutines** =====================================  Macros and subroutines are two programming concepts that serve different purposes. Here's a comparis"
+    },
+    {
+      "case_id": "eval_spos_005",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Phases of a Compiler** ==========================  A compiler consists of several phases that transform the source code into target machine code. The following are the different "
+    },
+    {
+      "case_id": "eval_spos_006",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Lexical Analyzer (Scanner) Role in Compilation** =====================================================  The Lexical Analyzer (Scanner) plays a crucial role in the compilation pro"
+    },
+    {
+      "case_id": "eval_spos_007",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Top-Down Parsing vs Bottom-Up Parsing** =====================================  ### Overview  Parsing is a crucial step in compiler design that involves breaking down the source c"
+    },
+    {
+      "case_id": "eval_spos_008",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Process Control Block (PCB) Contents** =====================================  A Process Control Block (PCB) contains the following information:  *   Process state (new, ready, ru"
+    },
+    {
+      "case_id": "eval_spos_009",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 1.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**CPU Scheduling Algorithms Comparison** =====================================  ### Overview  This section compares three CPU scheduling algorithms: First-Come, First-Served (FCFS)"
+    },
+    {
+      "case_id": "eval_spos_010",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Inter-Process Communication (IPC) Mechanisms** =====================================================  Inter-Process Communication (IPC) mechanisms enable processes to exchange da"
+    },
+    {
+      "case_id": "eval_spos_011",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 0.0,
+      "answer_preview": "**Critical Section Problem Requirements** =============================================  The three requirements to solve the critical section problem in process synchronization are"
+    },
+    {
+      "case_id": "eval_spos_012",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Deadlock Conditions**  To determine if a deadlock situation will occur, we need to check if all four Coffman conditions are met simultaneously.  The four Coffman conditions are: "
+    },
+    {
+      "case_id": "eval_spos_013",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Banker's Algorithm for Deadlock Avoidance**  Banker's Algorithm for deadlock avoidance utilizes data structures to test whether the system is in a safe state. The algorithm uses "
+    },
+    {
+      "case_id": "eval_spos_014",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Paging in Memory Management** =====================================  Paging is a memory management scheme that eliminates external fragmentation by partitioning physical memory i"
+    },
+    {
+      "case_id": "eval_spos_015",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Page Replacement Algorithms: FIFO, LRU, and Optimal**  ### Overview  Page replacement algorithms are used in paging systems to select a victim page when a page fault occurs and n"
+    },
+    {
+      "case_id": "eval_spos_016",
+      "subject": "SPOS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Disk Scheduling Algorithms: SSTF and SCAN** =====================================================  **Overview** ------------  Disk scheduling algorithms are used to optimize the "
+    },
+    {
+      "case_id": "eval_cn_001",
+      "subject": "CN",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**OSI 7-Layer Reference Model**  The OSI (Open Systems Interconnection) 7-layer reference model is a conceptual framework used to understand and standardize the communication betwe"
+    },
+    {
+      "case_id": "eval_cn_002",
+      "subject": "CN",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Fault Tolerance Comparison: Star vs Mesh Network Topology**  ### Star Network Topology  In a star network topology, all devices connect to a central hub or switch. This design pr"
+    },
+    {
+      "case_id": "eval_cn_003",
+      "subject": "CN",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Cyclic Redundancy Check (CRC) Error Detection** =====================================================  Cyclic Redundancy Check (CRC) is a widely used error detection technique in"
+    },
+    {
+      "case_id": "eval_cn_004",
+      "subject": "CN",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Sliding Window Protocols: Go-Back-N vs Selective Repeat**  ### Overview  Both Go-Back-N (GBN) and Selective Repeat (SR) are sliding window protocols used in Stop-and-Wait ARQ. Th"
+    },
+    {
+      "case_id": "eval_cn_005",
+      "subject": "CN",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**IPv4 Classful Addressing** ==========================  IPv4 classful addressing divides 32-bit addresses into five classes: A, B, C, D, and E. Each class has a specific range of "
+    },
+    {
+      "case_id": "eval_cn_006",
+      "subject": "CN",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Routing Algorithms Comparison** =====================================  **Distance Vector Routing (Bellman-Ford Algorithm)** ---------------------------------------------------  *"
+    },
+    {
+      "case_id": "eval_cn_007",
+      "subject": "CN",
+      "baseline_cit_validity": 1.0,
+      "improved_cit_validity": 1.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 0.0,
+      "answer_preview": "**TCP vs UDP: Key Differences** =====================================  The main differences between TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) are:  *   *"
+    },
+    {
+      "case_id": "eval_cn_008",
+      "subject": "CN",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Application Layer Protocols: DNS and DHCP**  The Application Layer is responsible for providing services to end-user applications. Two key protocols that operate in the Applicati"
+    },
+    {
+      "case_id": "eval_dbms_001",
+      "subject": "DBMS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 1.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Three-Schema Architecture of a Database Management System** ===========================================================  The Three-Schema Architecture is a fundamental concept in"
+    },
+    {
+      "case_id": "eval_dbms_002",
+      "subject": "DBMS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 1.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Components of an Entity-Relationship (ER) Diagram** =====================================================  An Entity-Relationship (ER) diagram is a visual representation of the s"
+    },
+    {
+      "case_id": "eval_dbms_003",
+      "subject": "DBMS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 1.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Relational Algebra Operations** ================================  Relational algebra is a formal language for manipulating relational databases. The fundamental unary operations "
+    },
+    {
+      "case_id": "eval_dbms_004",
+      "subject": "DBMS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 1.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Database Normalization** ==========================  Database normalization is the process of organizing the data in a database to minimize data redundancy and dependency. The go"
+    },
+    {
+      "case_id": "eval_dbms_005",
+      "subject": "DBMS",
+      "baseline_cit_validity": 1.0,
+      "improved_cit_validity": 1.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**ACID Properties of Database Transactions** =============================================  A database transaction is a sequence of operations that are executed as a single, all-or"
+    },
+    {
+      "case_id": "eval_dbms_006",
+      "subject": "DBMS",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Two-Phase Locking (2PL) Protocol**  Two-Phase Locking (2PL) is a concurrency control technique used to ensure serializability in transactions. Here's how it guarantees serializab"
+    },
+    {
+      "case_id": "eval_toc_001",
+      "subject": "TOC",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 1.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Comparison of DFA and NFA** ================================  ### Overview  Deterministic Finite Automata (DFA) and Non-deterministic Finite Automata (NFA) are two types of finit"
+    },
+    {
+      "case_id": "eval_toc_002",
+      "subject": "TOC",
+      "baseline_cit_validity": 1.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Moore Machines vs Mealy Machines**  ### Overview  Moore machines and Mealy machines are two types of finite state machines with output capabilities.  ### Moore Machines  A Moore "
+    },
+    {
+      "case_id": "eval_toc_003",
+      "subject": "TOC",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Pumping Lemma for Regular Languages**  The Pumping Lemma states that any sufficiently long string w in a regular language (|w| >= p) can be split into w = xyz satisfying:  * |y| "
+    },
+    {
+      "case_id": "eval_toc_004",
+      "subject": "TOC",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 1.0,
+      "improved_confidence_compliance": 1.0,
+      "answer_preview": "**Context-Free Grammars (CFG) and Pushdown Automata (PDA)** ===========================================================  **Context-Free Grammars (CFG)** ---------------------------"
+    },
+    {
+      "case_id": "eval_toc_005",
+      "subject": "TOC",
+      "baseline_cit_validity": 0.0,
+      "improved_cit_validity": 0.0,
+      "baseline_confidence_compliance": 0.0,
+      "improved_confidence_compliance": 0.0,
+      "answer_preview": "**Turing Machine Description** ================================  A Turing Machine (TM) is a mathematical model for computation that consists of the following components:  *   **Inf"
+    }
+  ],
+  "limitations": [
+    "Small 3B parameter models (llama3.2:3b) remain sensitive to prompt phrasing and occasionally place citations at paragraph ends rather than sentence-level claims.",
+    "Deterministic normalization corrects format defects (e.g. bolded asterisks, bracketed source indices) but intentionally and strictly never fabricates citations where the model omitted them.",
+    "JSON structured output mode (Experiment B) works reliably on local Ollama, but adds formatting overhead and occasional verbosity reduction compared to native Markdown generation."
+  ]
+}

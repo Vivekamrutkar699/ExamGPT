@@ -124,3 +124,35 @@ class GenerationBenchmarkReport(BaseModel):
     subject_metrics: Dict[str, SubjectGenerationSummary]
     case_results: List[GenerationEvalResult]
     failures: List[GenerationEvalResult] = Field(default_factory=list)
+
+
+class ExperimentComparisonRow(BaseModel):
+    """Metrics and delta summary for a single generation improvement experiment."""
+    configuration_name: str
+    description: str
+    success_rate: float
+    mean_concept_coverage: float
+    mean_grounded_concept_coverage: float
+    mean_citation_validity: float
+    mean_citation_source_match: float
+    confidence_compliance_rate: float
+    cases_improved: int = 0
+    cases_regressed: int = 0
+    cases_unchanged: int = 0
+
+
+class GenerationImprovementReport(BaseModel):
+    """Full comparative report across controlled generation reliability experiments."""
+    report_title: str = "ExamGPT Phase 6C: Controlled Generation Reliability Improvement Report"
+    dataset_name: str
+    corpus_version: str
+    model: str
+    temperature: float
+    max_tokens: int
+    timestamp: str
+    diagnosis_counts: Dict[str, int]
+    comparison_table: List[ExperimentComparisonRow]
+    selected_strategy: str
+    selection_rationale: str
+    case_level_analysis: List[Dict[str, Any]] = Field(default_factory=list)
+    limitations: List[str] = Field(default_factory=list)
