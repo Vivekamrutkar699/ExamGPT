@@ -33,6 +33,20 @@ from app.evals.reporter import (
     generate_multi_config_markdown_report,
 )
 
+from app.evals.generation_schemas import (
+    CitationResult,
+    GenerationMetrics,
+    GenerationEvalResult,
+)
+from app.evals.generation_metrics import (
+    extract_citations,
+    validate_citations,
+    calculate_concept_coverage,
+    calculate_grounded_concept_coverage,
+    calculate_confidence_compliance,
+    compute_generation_metrics,
+)
+
 __all__ = [
     "EvalCase",
     "EvalDataset",
@@ -55,4 +69,13 @@ __all__ = [
     "generate_markdown_report",
     "generate_multi_config_json_report",
     "generate_multi_config_markdown_report",
+    "CitationResult",
+    "GenerationMetrics",
+    "GenerationEvalResult",
+    "extract_citations",
+    "validate_citations",
+    "calculate_concept_coverage",
+    "calculate_grounded_concept_coverage",
+    "calculate_confidence_compliance",
+    "compute_generation_metrics",
 ]
