@@ -1,0 +1,323 @@
+{
+  "dataset_name": "SPPU Engineering Core Evaluation Dataset",
+  "version": "1.0.0",
+  "description": "35 curated SPPU engineering questions across SPOS, CN, DBMS, and TOC with deterministic golden chunk references and concepts.",
+  "corpus_version": "1.0.0",
+  "cases": [
+    {
+      "case_id": "eval_spos_001",
+      "subject": "SPOS",
+      "unit": "Unit 1",
+      "query": "What is the difference between a linker and a loader in system programming?",
+      "golden_chunk_ids": ["chunk_spos_u1_001"],
+      "expected_concepts": ["linker", "loader", "object modules", "executable", "address resolution"],
+      "expected_characteristics": "Explanation of linking object files vs loading executable image into RAM."
+    },
+    {
+      "case_id": "eval_spos_002",
+      "subject": "SPOS",
+      "unit": "Unit 1",
+      "query": "Explain relocation in loaders and how memory addresses are adjusted.",
+      "golden_chunk_ids": ["chunk_spos_u1_002"],
+      "expected_concepts": ["relocation", "loaders", "load origin", "relocation bits", "relocation dictionary"],
+      "expected_characteristics": "Details how addresses are adjusted when loaded at different memory base origins."
+    },
+    {
+      "case_id": "eval_spos_003",
+      "subject": "SPOS",
+      "unit": "Unit 1",
+      "query": "What databases are used by a macro processor during Pass 1 and Pass 2?",
+      "golden_chunk_ids": ["chunk_spos_u1_003"],
+      "expected_concepts": ["macro", "macro processor", "mnt", "mdt", "ala"],
+      "expected_characteristics": "Description of MNT, MDT, and ALA tables across two-pass processing."
+    },
+    {
+      "case_id": "eval_spos_004",
+      "subject": "SPOS",
+      "unit": "Unit 1",
+      "query": "Compare macros and subroutines in terms of code size and execution overhead.",
+      "golden_chunk_ids": ["chunk_spos_u1_004"],
+      "expected_concepts": ["macro", "subroutine", "in-line", "overhead", "stack frame"],
+      "expected_characteristics": "Inline expansion vs single shared code copy with call/return overhead."
+    },
+    {
+      "case_id": "eval_spos_005",
+      "subject": "SPOS",
+      "unit": "Unit 2",
+      "query": "List and explain the different phases of a compiler from source to target code.",
+      "golden_chunk_ids": ["chunk_spos_u2_001"],
+      "expected_concepts": ["phases of a compiler", "lexical analysis", "syntax analysis", "intermediate code", "code generation"],
+      "expected_characteristics": "Step-by-step breakdown of analysis and synthesis compiler phases."
+    },
+    {
+      "case_id": "eval_spos_006",
+      "subject": "SPOS",
+      "unit": "Unit 2",
+      "query": "What is the role of a lexical analyzer or scanner in compilation?",
+      "golden_chunk_ids": ["chunk_spos_u2_002"],
+      "expected_concepts": ["lexical analyzer", "scanner", "tokens", "lexemes", "lex"],
+      "expected_characteristics": "Group characters into tokens, strip whitespace, and produce token stream."
+    },
+    {
+      "case_id": "eval_spos_007",
+      "subject": "SPOS",
+      "unit": "Unit 2",
+      "query": "Differentiate between top-down parsing and bottom-up parsing techniques.",
+      "golden_chunk_ids": ["chunk_spos_u2_003"],
+      "expected_concepts": ["top-down", "bottom-up", "parse tree", "ll(1)", "shift-reduce"],
+      "expected_characteristics": "Constructing parse trees from root vs reducing leaves to start symbol."
+    },
+    {
+      "case_id": "eval_spos_008",
+      "subject": "SPOS",
+      "unit": "Unit 3",
+      "query": "What information is stored inside a Process Control Block (PCB)?",
+      "golden_chunk_ids": ["chunk_spos_u3_001"],
+      "expected_concepts": ["process control block", "pcb", "program counter", "process state", "context switch"],
+      "expected_characteristics": "Enumeration of PCB fields and their role in context switching."
+    },
+    {
+      "case_id": "eval_spos_009",
+      "subject": "SPOS",
+      "unit": "Unit 3",
+      "query": "Compare CPU scheduling algorithms FCFS, SJF, and Round Robin.",
+      "golden_chunk_ids": ["chunk_spos_u3_002"],
+      "expected_concepts": ["cpu scheduling", "fcfs", "sjf", "round robin", "time quantum"],
+      "expected_characteristics": "Comparison of turnaround time, waiting time, convoy effect, and preemption."
+    },
+    {
+      "case_id": "eval_spos_010",
+      "subject": "SPOS",
+      "unit": "Unit 3",
+      "query": "Explain inter-process communication (IPC) using shared memory and message passing.",
+      "golden_chunk_ids": ["chunk_spos_u3_003"],
+      "expected_concepts": ["inter-process communication", "ipc", "shared memory", "message queues", "pipes"],
+      "expected_characteristics": "Direct memory mapping vs kernel mediated message passing mechanisms."
+    },
+    {
+      "case_id": "eval_spos_011",
+      "subject": "SPOS",
+      "unit": "Unit 4",
+      "query": "State the three requirements to solve the critical section problem in process synchronization.",
+      "golden_chunk_ids": ["chunk_spos_u4_001"],
+      "expected_concepts": ["critical section", "mutual exclusion", "progress", "bounded waiting", "semaphores"],
+      "expected_characteristics": "Mutual exclusion, progress, and bounded waiting definitions."
+    },
+    {
+      "case_id": "eval_spos_012",
+      "subject": "SPOS",
+      "unit": "Unit 4",
+      "query": "What are the four Coffman conditions necessary for a deadlock to occur?",
+      "golden_chunk_ids": ["chunk_spos_u4_002"],
+      "expected_concepts": ["deadlock", "coffman", "mutual exclusion", "hold and wait", "circular wait"],
+      "expected_characteristics": "The 4 simultaneous conditions that result in deadlock."
+    },
+    {
+      "case_id": "eval_spos_013",
+      "subject": "SPOS",
+      "unit": "Unit 4",
+      "query": "How does Banker's algorithm achieve deadlock avoidance using safe state testing?",
+      "golden_chunk_ids": ["chunk_spos_u4_003"],
+      "expected_concepts": ["banker's algorithm", "deadlock avoidance", "available", "need", "safe state"],
+      "expected_characteristics": "Data structures and safety algorithm check prior to granting requests."
+    },
+    {
+      "case_id": "eval_spos_014",
+      "subject": "SPOS",
+      "unit": "Unit 5",
+      "query": "Explain paging in memory management and the role of the TLB.",
+      "golden_chunk_ids": ["chunk_spos_u5_001"],
+      "expected_concepts": ["paging", "page table", "mmu", "frames", "tlb"],
+      "expected_characteristics": "Address translation from page to frame and hardware caching via TLB."
+    },
+    {
+      "case_id": "eval_spos_015",
+      "subject": "SPOS",
+      "unit": "Unit 5",
+      "query": "Compare FIFO, LRU, and Optimal page replacement algorithms and Belady's anomaly.",
+      "golden_chunk_ids": ["chunk_spos_u5_002"],
+      "expected_concepts": ["page replacement", "fifo", "lru", "belady's anomaly", "optimal"],
+      "expected_characteristics": "Tradeoffs between eviction policies and frame allocation behavior."
+    },
+    {
+      "case_id": "eval_spos_016",
+      "subject": "SPOS",
+      "unit": "Unit 6",
+      "query": "Explain disk scheduling algorithms SSTF and SCAN for minimizing head seek time.",
+      "golden_chunk_ids": ["chunk_spos_u6_001"],
+      "expected_concepts": ["disk scheduling", "sstf", "scan", "seek time", "elevator"],
+      "expected_characteristics": "Head trajectory optimization to service pending cylinder requests."
+    },
+    {
+      "case_id": "eval_cn_001",
+      "subject": "CN",
+      "unit": "Unit 1",
+      "query": "Explain the 7 layers of the OSI reference model and compare with TCP/IP model.",
+      "golden_chunk_ids": ["chunk_cn_u1_001"],
+      "expected_concepts": ["osi", "tcp/ip", "physical", "data link", "transport"],
+      "expected_characteristics": "Layer duties from physical bits to application layer services."
+    },
+    {
+      "case_id": "eval_cn_002",
+      "subject": "CN",
+      "unit": "Unit 1",
+      "query": "Compare star network topology and mesh network topology in terms of fault tolerance.",
+      "golden_chunk_ids": ["chunk_cn_u1_002"],
+      "expected_concepts": ["network topologies", "star topology", "mesh topology", "fault tolerance", "switch"],
+      "expected_characteristics": "Single point of failure at hub vs dedicated point-to-point links."
+    },
+    {
+      "case_id": "eval_cn_003",
+      "subject": "CN",
+      "unit": "Unit 2",
+      "query": "How does Cyclic Redundancy Check (CRC) detect transmission errors in data link frames?",
+      "golden_chunk_ids": ["chunk_cn_u2_001"],
+      "expected_concepts": ["cyclic redundancy check", "crc", "polynomial", "generator polynomial", "checksum"],
+      "expected_characteristics": "Modulo-2 binary division by generator polynomial appending remainder."
+    },
+    {
+      "case_id": "eval_cn_004",
+      "subject": "CN",
+      "unit": "Unit 2",
+      "query": "Compare Go-Back-N and Selective Repeat sliding window ARQ protocols.",
+      "golden_chunk_ids": ["chunk_cn_u2_002"],
+      "expected_concepts": ["sliding window", "go-back-n", "selective repeat", "arq", "retransmitted"],
+      "expected_characteristics": "Cumulative ACK retransmission of entire window vs individual ACKs."
+    },
+    {
+      "case_id": "eval_cn_005",
+      "subject": "CN",
+      "unit": "Unit 3",
+      "query": "Explain IPv4 classful addressing vs CIDR subnetting and subnet masks.",
+      "golden_chunk_ids": ["chunk_cn_u3_001"],
+      "expected_concepts": ["ipv4", "subnetting", "cidr", "subnet mask", "classful"],
+      "expected_characteristics": "Fixed classes A-C vs variable prefix length masks for IP conservation."
+    },
+    {
+      "case_id": "eval_cn_006",
+      "subject": "CN",
+      "unit": "Unit 3",
+      "query": "Compare Distance Vector Routing and Link State Routing algorithms.",
+      "golden_chunk_ids": ["chunk_cn_u3_002"],
+      "expected_concepts": ["distance vector", "link state", "bellman-ford", "dijkstra", "count-to-infinity"],
+      "expected_characteristics": "Neighbor table exchange vs global topology flooding with shortest path."
+    },
+    {
+      "case_id": "eval_cn_007",
+      "subject": "CN",
+      "unit": "Unit 4",
+      "query": "What are the main differences between TCP and UDP protocols?",
+      "golden_chunk_ids": ["chunk_cn_u4_001"],
+      "expected_concepts": ["tcp", "udp", "connection-oriented", "handshake", "congestion control"],
+      "expected_characteristics": "Reliable connection 3-way handshake vs lightweight connectionless datagrams."
+    },
+    {
+      "case_id": "eval_cn_008",
+      "subject": "CN",
+      "unit": "Unit 5",
+      "query": "Explain the role of DNS and DHCP protocols in the application layer.",
+      "golden_chunk_ids": ["chunk_cn_u5_001"],
+      "expected_concepts": ["dns", "dhcp", "ip addresses", "dora", "application layer"],
+      "expected_characteristics": "Domain name resolution to IP addresses and automatic IP configuration."
+    },
+    {
+      "case_id": "eval_dbms_001",
+      "subject": "DBMS",
+      "unit": "Unit 1",
+      "query": "Explain the Three-Schema Architecture of a database management system.",
+      "golden_chunk_ids": ["chunk_dbms_u1_001"],
+      "expected_concepts": ["three-schema", "physical", "logical", "external", "data independence"],
+      "expected_characteristics": "Separation of physical storage, conceptual entities, and user views."
+    },
+    {
+      "case_id": "eval_dbms_002",
+      "subject": "DBMS",
+      "unit": "Unit 1",
+      "query": "Describe the components of an Entity-Relationship (ER) diagram.",
+      "golden_chunk_ids": ["chunk_dbms_u1_002"],
+      "expected_concepts": ["entity-relationship", "entities", "attributes", "relationships", "derived"],
+      "expected_characteristics": "Entity types, attribute classifications, and cardinality ratios."
+    },
+    {
+      "case_id": "eval_dbms_003",
+      "subject": "DBMS",
+      "unit": "Unit 2",
+      "query": "What are the fundamental operations in relational algebra?",
+      "golden_chunk_ids": ["chunk_dbms_u2_001"],
+      "expected_concepts": ["relational algebra", "selection", "projection", "cartesian product", "union"],
+      "expected_characteristics": "Unary sigma/pi and binary set union, difference, and cross product."
+    },
+    {
+      "case_id": "eval_dbms_004",
+      "subject": "DBMS",
+      "unit": "Unit 3",
+      "query": "Explain 1NF, 2NF, 3NF, and BCNF normal forms in database normalization.",
+      "golden_chunk_ids": ["chunk_dbms_u3_001"],
+      "expected_concepts": ["normalization", "1nf", "2nf", "3nf", "bcnf"],
+      "expected_characteristics": "Removal of multivalued attributes, partial dependencies, and transitive dependencies."
+    },
+    {
+      "case_id": "eval_dbms_005",
+      "subject": "DBMS",
+      "unit": "Unit 4",
+      "query": "Explain the ACID properties of a database transaction.",
+      "golden_chunk_ids": ["chunk_dbms_u4_001"],
+      "expected_concepts": ["acid", "atomicity", "consistency", "isolation", "durability"],
+      "expected_characteristics": "All-or-nothing execution, integrity constraints, isolation, and persistence."
+    },
+    {
+      "case_id": "eval_dbms_006",
+      "subject": "DBMS",
+      "unit": "Unit 4",
+      "query": "How does Two-Phase Locking (2PL) guarantee serializability in transactions?",
+      "golden_chunk_ids": ["chunk_dbms_u4_002"],
+      "expected_concepts": ["two-phase locking", "2pl", "growing phase", "shrinking phase", "concurrency control"],
+      "expected_characteristics": "Lock acquisition before release preventing conflicting schedules."
+    },
+    {
+      "case_id": "eval_toc_001",
+      "subject": "TOC",
+      "unit": "Unit 1",
+      "query": "Compare Deterministic Finite Automata (DFA) and Non-deterministic Finite Automata (NFA).",
+      "golden_chunk_ids": ["chunk_toc_u1_001"],
+      "expected_concepts": ["dfa", "nfa", "finite automata", "subset construction", "transition function"],
+      "expected_characteristics": "Deterministic single target state vs transition to power set of states."
+    },
+    {
+      "case_id": "eval_toc_002",
+      "subject": "TOC",
+      "unit": "Unit 1",
+      "query": "What is the difference between Moore machines and Mealy machines?",
+      "golden_chunk_ids": ["chunk_toc_u1_002"],
+      "expected_concepts": ["moore", "mealy", "output", "states", "transitions"],
+      "expected_characteristics": "Output determined by current state vs output determined by state and input."
+    },
+    {
+      "case_id": "eval_toc_003",
+      "subject": "TOC",
+      "unit": "Unit 2",
+      "query": "State the Pumping Lemma for regular languages and explain how it is used.",
+      "golden_chunk_ids": ["chunk_toc_u2_001"],
+      "expected_concepts": ["pumping lemma", "regular languages", "pumping length", "xyz", "not regular"],
+      "expected_characteristics": "String decomposition conditions used for contradiction proofs of non-regularity."
+    },
+    {
+      "case_id": "eval_toc_004",
+      "subject": "TOC",
+      "unit": "Unit 3",
+      "query": "Explain Context-Free Grammars (CFG) and Pushdown Automata (PDA).",
+      "golden_chunk_ids": ["chunk_toc_u3_001"],
+      "expected_concepts": ["context-free grammars", "cfg", "pushdown automata", "pda", "stack"],
+      "expected_characteristics": "Grammar production rules and stack augmented automata for CFL recognition."
+    },
+    {
+      "case_id": "eval_toc_005",
+      "subject": "TOC",
+      "unit": "Unit 4",
+      "query": "Describe a Turing Machine and explain why the Halting Problem is undecidable.",
+      "golden_chunk_ids": ["chunk_toc_u4_001"],
+      "expected_concepts": ["turing machine", "halting problem", "undecidable", "tape", "diagonalization"],
+      "expected_characteristics": "Infinite tape automaton and formal undecidability proof of program termination."
+    }
+  ]
+}
