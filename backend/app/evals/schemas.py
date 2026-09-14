@@ -1,5 +1,5 @@
 """
-Evaluation schemas for ExamGPT RAG Retrieval Evaluation System (Phase 5A).
+Evaluation schemas for ExamGPT RAG Retrieval Evaluation System (Phase 5A & 5B).
 Provides pure Pydantic models for evaluation datasets, frozen corpus,
 retrieval candidates, deterministic metric results, and benchmark reports.
 """
@@ -96,6 +96,16 @@ class EvalRunReport(BaseModel):
     dataset_name: str
     dataset_version: str
     corpus_version: str
+    configuration_name: Optional[str] = "default"
     aggregate_metrics: AggregateEvalMetrics
     case_scores: List[CaseMetricScore]
     failures: List[CaseMetricScore] = Field(default_factory=list)
+
+
+class MultiConfigBenchmarkReport(BaseModel):
+    """Comprehensive benchmark comparing multiple retrieval configurations."""
+    dataset_name: str
+    dataset_version: str
+    corpus_version: str
+    total_cases: int
+    configuration_reports: Dict[str, EvalRunReport]

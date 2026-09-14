@@ -1,0 +1,4122 @@
+{
+  "dataset_name": "SPPU Engineering Core Evaluation Dataset",
+  "dataset_version": "1.0.0",
+  "corpus_version": "1.0.0",
+  "total_cases": 35,
+  "configuration_reports": {
+    "dense": {
+      "dataset_name": "SPPU Engineering Core Evaluation Dataset",
+      "dataset_version": "1.0.0",
+      "corpus_version": "1.0.0",
+      "configuration_name": "dense",
+      "aggregate_metrics": {
+        "total_cases": 35,
+        "mean_recall_at_3": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_mrr": 1.0,
+        "mean_context_relevance": 0.5086,
+        "perfect_recall_at_3_count": 35,
+        "perfect_recall_at_5_count": 35,
+        "zero_mrr_count": 0
+      },
+      "case_scores": [
+        {
+          "case_id": "eval_spos_001",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "What is the difference between a linker and a loader in system programming?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.8,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_004",
+            "chunk_spos_u3_003",
+            "chunk_cn_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "linker",
+            "loader",
+            "object modules",
+            "executable",
+            "address resolution"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_002",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "Explain relocation in loaders and how memory addresses are adjusted.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_001",
+            "chunk_spos_u5_001",
+            "chunk_spos_u3_003",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "relocation",
+            "loaders",
+            "load origin",
+            "relocation bits"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_003",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "What databases are used by a macro processor during Pass 1 and Pass 2?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_003",
+            "chunk_spos_u1_004",
+            "chunk_spos_u2_001",
+            "chunk_dbms_u4_001",
+            "chunk_dbms_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "macro",
+            "macro processor",
+            "mnt",
+            "mdt",
+            "ala"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_004",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "Compare macros and subroutines in terms of code size and execution overhead.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_004"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_004",
+            "chunk_spos_u1_003",
+            "chunk_spos_u2_001",
+            "chunk_spos_u2_002",
+            "chunk_spos_u2_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "macro",
+            "subroutine",
+            "in-line",
+            "overhead",
+            "stack frame"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_005",
+          "subject": "SPOS",
+          "unit": "Unit 2",
+          "query": "List and explain the different phases of a compiler from source to target code.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u2_001",
+            "chunk_spos_u1_003",
+            "chunk_spos_u1_004",
+            "chunk_spos_u2_002",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "phases of a compiler",
+            "lexical analysis",
+            "syntax analysis",
+            "intermediate code",
+            "code generation"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_006",
+          "subject": "SPOS",
+          "unit": "Unit 2",
+          "query": "What is the role of a lexical analyzer or scanner in compilation?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u2_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u2_002",
+            "chunk_spos_u2_001",
+            "chunk_spos_u2_003",
+            "chunk_spos_u1_001",
+            "chunk_spos_u1_004"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "lexical analyzer",
+            "scanner",
+            "tokens",
+            "lexemes",
+            "lex"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_007",
+          "subject": "SPOS",
+          "unit": "Unit 2",
+          "query": "Differentiate between top-down parsing and bottom-up parsing techniques.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u2_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u2_003",
+            "chunk_spos_u2_002",
+            "chunk_toc_u3_001",
+            "chunk_spos_u2_001",
+            "chunk_spos_u1_004"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "top-down",
+            "bottom-up",
+            "parse tree",
+            "ll(1)",
+            "shift-reduce"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_008",
+          "subject": "SPOS",
+          "unit": "Unit 3",
+          "query": "What information is stored inside a Process Control Block (PCB)?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u3_001",
+            "chunk_spos_u3_003",
+            "chunk_dbms_u4_001",
+            "chunk_spos_u5_001",
+            "chunk_cn_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "process control block",
+            "pcb",
+            "program counter",
+            "process state",
+            "context switch"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_009",
+          "subject": "SPOS",
+          "unit": "Unit 3",
+          "query": "Compare CPU scheduling algorithms FCFS, SJF, and Round Robin.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u3_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u3_002",
+            "chunk_spos_u6_001",
+            "chunk_spos_u4_001",
+            "chunk_spos_u5_002",
+            "chunk_cn_u3_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "cpu scheduling",
+            "fcfs",
+            "sjf",
+            "round robin",
+            "time quantum"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_010",
+          "subject": "SPOS",
+          "unit": "Unit 3",
+          "query": "Explain inter-process communication (IPC) using shared memory and message passing.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u3_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u3_003",
+            "chunk_spos_u3_001",
+            "chunk_spos_u4_001",
+            "chunk_cn_u4_001",
+            "chunk_cn_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "inter-process communication",
+            "ipc",
+            "shared memory",
+            "message queues",
+            "pipes"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_011",
+          "subject": "SPOS",
+          "unit": "Unit 4",
+          "query": "State the three requirements to solve the critical section problem in process synchronization.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u4_001",
+            "chunk_spos_u3_001",
+            "chunk_spos_u3_003",
+            "chunk_spos_u3_002",
+            "chunk_spos_u4_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "critical section",
+            "mutual exclusion",
+            "progress",
+            "bounded waiting",
+            "semaphores"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_012",
+          "subject": "SPOS",
+          "unit": "Unit 4",
+          "query": "What are the four Coffman conditions necessary for a deadlock to occur?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 1.0,
+          "golden_chunk_ids": [
+            "chunk_spos_u4_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u4_002",
+            "chunk_spos_u4_003",
+            "chunk_spos_u4_001",
+            "chunk_dbms_u4_001",
+            "chunk_dbms_u4_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "deadlock",
+            "coffman",
+            "mutual exclusion",
+            "hold and wait",
+            "circular wait"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_013",
+          "subject": "SPOS",
+          "unit": "Unit 4",
+          "query": "How does Banker's algorithm achieve deadlock avoidance using safe state testing?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 1.0,
+          "golden_chunk_ids": [
+            "chunk_spos_u4_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u4_003",
+            "chunk_spos_u4_002",
+            "chunk_dbms_u4_002",
+            "chunk_dbms_u4_001",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "banker's algorithm",
+            "deadlock avoidance",
+            "available",
+            "need",
+            "safe state"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_014",
+          "subject": "SPOS",
+          "unit": "Unit 5",
+          "query": "Explain paging in memory management and the role of the TLB.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.8,
+          "golden_chunk_ids": [
+            "chunk_spos_u5_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u5_001",
+            "chunk_spos_u5_002",
+            "chunk_spos_u3_003",
+            "chunk_spos_u3_001",
+            "chunk_spos_u6_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "paging",
+            "page table",
+            "mmu",
+            "frames",
+            "tlb"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_015",
+          "subject": "SPOS",
+          "unit": "Unit 5",
+          "query": "Compare FIFO, LRU, and Optimal page replacement algorithms and Belady's anomaly.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u5_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u5_002",
+            "chunk_spos_u6_001",
+            "chunk_spos_u5_001",
+            "chunk_spos_u3_002",
+            "chunk_cn_u3_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "page replacement",
+            "fifo",
+            "lru",
+            "belady's anomaly",
+            "optimal"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_016",
+          "subject": "SPOS",
+          "unit": "Unit 6",
+          "query": "Explain disk scheduling algorithms SSTF and SCAN for minimizing head seek time.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.2,
+          "golden_chunk_ids": [
+            "chunk_spos_u6_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u6_001",
+            "chunk_spos_u3_002",
+            "chunk_spos_u5_002",
+            "chunk_spos_u5_001",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "disk scheduling",
+            "sstf",
+            "scan",
+            "seek time",
+            "elevator"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_001",
+          "subject": "CN",
+          "unit": "Unit 1",
+          "query": "Explain the 7 layers of the OSI reference model and compare with TCP/IP model.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.2,
+          "golden_chunk_ids": [
+            "chunk_cn_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u1_001",
+            "chunk_spos_u3_003",
+            "chunk_cn_u4_001",
+            "chunk_cn_u5_001",
+            "chunk_spos_u3_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "osi",
+            "tcp/ip",
+            "physical",
+            "data link",
+            "transport"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_002",
+          "subject": "CN",
+          "unit": "Unit 1",
+          "query": "Compare star network topology and mesh network topology in terms of fault tolerance.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u1_002",
+            "chunk_cn_u3_002",
+            "chunk_cn_u1_001",
+            "chunk_spos_u4_001",
+            "chunk_spos_u3_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "network topologies",
+            "star topology",
+            "mesh topology",
+            "fault tolerance",
+            "switch"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_003",
+          "subject": "CN",
+          "unit": "Unit 2",
+          "query": "How does Cyclic Redundancy Check (CRC) detect transmission errors in data link frames?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u2_001",
+            "chunk_cn_u2_002",
+            "chunk_spos_u4_001",
+            "chunk_spos_u3_003",
+            "chunk_spos_u6_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "cyclic redundancy check",
+            "crc",
+            "polynomial",
+            "generator polynomial",
+            "checksum"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_004",
+          "subject": "CN",
+          "unit": "Unit 2",
+          "query": "Compare Go-Back-N and Selective Repeat sliding window ARQ protocols.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u2_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u2_002",
+            "chunk_cn_u4_001",
+            "chunk_cn_u3_002",
+            "chunk_cn_u1_001",
+            "chunk_spos_u3_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "sliding window",
+            "go-back-n",
+            "selective repeat",
+            "arq",
+            "retransmitted"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_005",
+          "subject": "CN",
+          "unit": "Unit 3",
+          "query": "Explain IPv4 classful addressing vs CIDR subnetting and subnet masks.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_cn_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u3_001",
+            "chunk_cn_u1_001",
+            "chunk_spos_u1_004",
+            "chunk_cn_u5_001",
+            "chunk_spos_u3_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "ipv4",
+            "subnetting",
+            "cidr",
+            "subnet mask",
+            "classful"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_006",
+          "subject": "CN",
+          "unit": "Unit 3",
+          "query": "Compare Distance Vector Routing and Link State Routing algorithms.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u3_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u3_002",
+            "chunk_spos_u3_002",
+            "chunk_cn_u1_002",
+            "chunk_spos_u6_001",
+            "chunk_spos_u5_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "distance vector",
+            "link state",
+            "bellman-ford",
+            "dijkstra",
+            "count-to-infinity"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_007",
+          "subject": "CN",
+          "unit": "Unit 4",
+          "query": "What are the main differences between TCP and UDP protocols?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.8,
+          "golden_chunk_ids": [
+            "chunk_cn_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u4_001",
+            "chunk_cn_u1_001",
+            "chunk_spos_u3_003",
+            "chunk_cn_u5_001",
+            "chunk_dbms_u4_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "tcp",
+            "udp",
+            "connection-oriented",
+            "handshake",
+            "congestion control"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_008",
+          "subject": "CN",
+          "unit": "Unit 5",
+          "query": "Explain the role of DNS and DHCP protocols in the application layer.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_cn_u5_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u5_001",
+            "chunk_cn_u1_001",
+            "chunk_spos_u3_003",
+            "chunk_cn_u3_001",
+            "chunk_cn_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "dns",
+            "dhcp",
+            "ip addresses",
+            "dora",
+            "application layer"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_001",
+          "subject": "DBMS",
+          "unit": "Unit 1",
+          "query": "Explain the Three-Schema Architecture of a database management system.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_dbms_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u4_001",
+            "chunk_dbms_u1_002",
+            "chunk_dbms_u3_001",
+            "chunk_dbms_u2_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "three-schema",
+            "physical",
+            "logical",
+            "external",
+            "data independence"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_002",
+          "subject": "DBMS",
+          "unit": "Unit 1",
+          "query": "Describe the components of an Entity-Relationship (ER) diagram.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_dbms_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u1_002",
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u2_001",
+            "chunk_dbms_u4_001",
+            "chunk_spos_u3_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "entity-relationship",
+            "entities",
+            "attributes",
+            "relationships",
+            "derived"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_003",
+          "subject": "DBMS",
+          "unit": "Unit 2",
+          "query": "What are the fundamental operations in relational algebra?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_dbms_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u2_001",
+            "chunk_spos_u2_001",
+            "chunk_dbms_u1_002",
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u3_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "relational algebra",
+            "selection",
+            "projection",
+            "cartesian product",
+            "union"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_004",
+          "subject": "DBMS",
+          "unit": "Unit 3",
+          "query": "Explain 1NF, 2NF, 3NF, and BCNF normal forms in database normalization.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_dbms_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u3_001",
+            "chunk_toc_u3_001",
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u2_001",
+            "chunk_dbms_u1_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "normalization",
+            "1nf",
+            "2nf",
+            "3nf",
+            "bcnf"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_005",
+          "subject": "DBMS",
+          "unit": "Unit 4",
+          "query": "Explain the ACID properties of a database transaction.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_dbms_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u4_001",
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u3_001",
+            "chunk_dbms_u4_002",
+            "chunk_dbms_u2_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "acid",
+            "atomicity",
+            "consistency",
+            "isolation",
+            "durability"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_006",
+          "subject": "DBMS",
+          "unit": "Unit 4",
+          "query": "How does Two-Phase Locking (2PL) guarantee serializability in transactions?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.8,
+          "golden_chunk_ids": [
+            "chunk_dbms_u4_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u4_002",
+            "chunk_dbms_u4_001",
+            "chunk_spos_u4_002",
+            "chunk_spos_u4_003",
+            "chunk_spos_u3_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "two-phase locking",
+            "2pl",
+            "growing phase",
+            "shrinking phase",
+            "concurrency control"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_001",
+          "subject": "TOC",
+          "unit": "Unit 1",
+          "query": "Compare Deterministic Finite Automata (DFA) and Non-deterministic Finite Automata (NFA).",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u1_001",
+            "chunk_toc_u3_001",
+            "chunk_spos_u4_002",
+            "chunk_toc_u1_002",
+            "chunk_spos_u5_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "dfa",
+            "nfa",
+            "finite automata",
+            "subset construction",
+            "transition function"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_002",
+          "subject": "TOC",
+          "unit": "Unit 1",
+          "query": "What is the difference between Moore machines and Mealy machines?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.2,
+          "golden_chunk_ids": [
+            "chunk_toc_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u1_002",
+            "chunk_spos_u5_001",
+            "chunk_spos_u3_002",
+            "chunk_spos_u3_003",
+            "chunk_spos_u6_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "moore",
+            "mealy",
+            "output",
+            "states",
+            "transitions"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_003",
+          "subject": "TOC",
+          "unit": "Unit 2",
+          "query": "State the Pumping Lemma for regular languages and explain how it is used.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u2_001",
+            "chunk_toc_u3_001",
+            "chunk_toc_u1_001",
+            "chunk_spos_u2_002",
+            "chunk_spos_u1_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "pumping lemma",
+            "regular languages",
+            "xyz",
+            "not regular"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_004",
+          "subject": "TOC",
+          "unit": "Unit 3",
+          "query": "Explain Context-Free Grammars (CFG) and Pushdown Automata (PDA).",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.2,
+          "golden_chunk_ids": [
+            "chunk_toc_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u3_001",
+            "chunk_spos_u2_003",
+            "chunk_spos_u2_002",
+            "chunk_toc_u2_001",
+            "chunk_toc_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "context-free grammars",
+            "cfg",
+            "pushdown automata",
+            "pda",
+            "stack"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_005",
+          "subject": "TOC",
+          "unit": "Unit 4",
+          "query": "Describe a Turing Machine and explain why the Halting Problem is undecidable.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_toc_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u4_001",
+            "chunk_toc_u1_002",
+            "chunk_spos_u4_002",
+            "chunk_dbms_u4_001",
+            "chunk_toc_u2_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "turing machine",
+            "halting problem",
+            "undecidable",
+            "tape",
+            "diagonalization"
+          ],
+          "has_relevant_chunk": true
+        }
+      ],
+      "failures": []
+    },
+    "lexical": {
+      "dataset_name": "SPPU Engineering Core Evaluation Dataset",
+      "dataset_version": "1.0.0",
+      "corpus_version": "1.0.0",
+      "configuration_name": "lexical",
+      "aggregate_metrics": {
+        "total_cases": 35,
+        "mean_recall_at_3": 0.9714,
+        "mean_recall_at_5": 1.0,
+        "mean_mrr": 0.9771,
+        "mean_context_relevance": 0.4881,
+        "perfect_recall_at_3_count": 34,
+        "perfect_recall_at_5_count": 35,
+        "zero_mrr_count": 0
+      },
+      "case_scores": [
+        {
+          "case_id": "eval_spos_001",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "What is the difference between a linker and a loader in system programming?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_004",
+            "chunk_spos_u3_003",
+            "chunk_spos_u4_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "linker",
+            "loader",
+            "object modules",
+            "executable",
+            "address resolution"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_002",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "Explain relocation in loaders and how memory addresses are adjusted.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.8,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_001",
+            "chunk_spos_u5_001",
+            "chunk_spos_u1_003",
+            "chunk_spos_u1_004"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "relocation",
+            "loaders",
+            "load origin",
+            "relocation bits"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_003",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "What databases are used by a macro processor during Pass 1 and Pass 2?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_003",
+            "chunk_spos_u1_004",
+            "chunk_toc_u2_001",
+            "chunk_spos_u5_002",
+            "chunk_cn_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "macro",
+            "macro processor",
+            "mnt",
+            "mdt",
+            "ala"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_004",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "Compare macros and subroutines in terms of code size and execution overhead.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.8,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_004"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_004",
+            "chunk_spos_u1_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_003",
+            "chunk_spos_u2_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "macro",
+            "subroutine",
+            "in-line",
+            "overhead",
+            "stack frame"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_005",
+          "subject": "SPOS",
+          "unit": "Unit 2",
+          "query": "List and explain the different phases of a compiler from source to target code.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u2_001",
+            "chunk_spos_u1_003",
+            "chunk_spos_u2_002",
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_004"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "phases of a compiler",
+            "lexical analysis",
+            "syntax analysis",
+            "intermediate code",
+            "code generation"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_006",
+          "subject": "SPOS",
+          "unit": "Unit 2",
+          "query": "What is the role of a lexical analyzer or scanner in compilation?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u2_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u2_002",
+            "chunk_spos_u1_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_004",
+            "chunk_spos_u2_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "lexical analyzer",
+            "scanner",
+            "tokens",
+            "lexemes",
+            "lex"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_007",
+          "subject": "SPOS",
+          "unit": "Unit 2",
+          "query": "Differentiate between top-down parsing and bottom-up parsing techniques.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u2_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u2_003",
+            "chunk_cn_u1_001",
+            "chunk_spos_u1_004",
+            "chunk_spos_u2_001",
+            "chunk_cn_u1_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "top-down",
+            "bottom-up",
+            "parse tree",
+            "ll(1)",
+            "shift-reduce"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_008",
+          "subject": "SPOS",
+          "unit": "Unit 3",
+          "query": "What information is stored inside a Process Control Block (PCB)?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u3_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u3_003",
+            "chunk_spos_u4_001",
+            "chunk_spos_u4_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "process control block",
+            "pcb",
+            "program counter",
+            "process state",
+            "context switch"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_009",
+          "subject": "SPOS",
+          "unit": "Unit 3",
+          "query": "Compare CPU scheduling algorithms FCFS, SJF, and Round Robin.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u3_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u3_002",
+            "chunk_spos_u6_001",
+            "chunk_spos_u3_001",
+            "chunk_spos_u4_002",
+            "chunk_spos_u5_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "cpu scheduling",
+            "fcfs",
+            "sjf",
+            "round robin",
+            "time quantum"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_010",
+          "subject": "SPOS",
+          "unit": "Unit 3",
+          "query": "Explain inter-process communication (IPC) using shared memory and message passing.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u3_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u3_003",
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_004",
+            "chunk_spos_u3_001",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "inter-process communication",
+            "ipc",
+            "shared memory",
+            "message queues",
+            "pipes"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_011",
+          "subject": "SPOS",
+          "unit": "Unit 4",
+          "query": "State the three requirements to solve the critical section problem in process synchronization.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u4_001",
+            "chunk_spos_u3_001",
+            "chunk_spos_u4_003",
+            "chunk_cn_u3_002",
+            "chunk_spos_u1_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "critical section",
+            "mutual exclusion",
+            "progress",
+            "bounded waiting",
+            "semaphores"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_012",
+          "subject": "SPOS",
+          "unit": "Unit 4",
+          "query": "What are the four Coffman conditions necessary for a deadlock to occur?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u4_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u4_002",
+            "chunk_spos_u1_003",
+            "chunk_spos_u4_003",
+            "chunk_cn_u1_001",
+            "chunk_cn_u2_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "deadlock",
+            "coffman",
+            "mutual exclusion",
+            "hold and wait",
+            "circular wait"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_013",
+          "subject": "SPOS",
+          "unit": "Unit 4",
+          "query": "How does Banker's algorithm achieve deadlock avoidance using safe state testing?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u4_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u4_003",
+            "chunk_spos_u4_002",
+            "chunk_cn_u3_002",
+            "chunk_spos_u1_004",
+            "chunk_spos_u2_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "banker's algorithm",
+            "deadlock avoidance",
+            "available",
+            "need",
+            "safe state"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_014",
+          "subject": "SPOS",
+          "unit": "Unit 5",
+          "query": "Explain paging in memory management and the role of the TLB.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u5_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u5_001",
+            "chunk_spos_u3_001",
+            "chunk_spos_u1_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_004"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "paging",
+            "page table",
+            "mmu",
+            "frames",
+            "tlb"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_015",
+          "subject": "SPOS",
+          "unit": "Unit 5",
+          "query": "Compare FIFO, LRU, and Optimal page replacement algorithms and Belady's anomaly.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u5_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u5_002",
+            "chunk_spos_u3_002",
+            "chunk_spos_u3_001",
+            "chunk_spos_u4_002",
+            "chunk_spos_u5_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "page replacement",
+            "fifo",
+            "lru",
+            "belady's anomaly",
+            "optimal"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_016",
+          "subject": "SPOS",
+          "unit": "Unit 6",
+          "query": "Explain disk scheduling algorithms SSTF and SCAN for minimizing head seek time.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.2,
+          "golden_chunk_ids": [
+            "chunk_spos_u6_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u6_001",
+            "chunk_spos_u3_002",
+            "chunk_spos_u5_002",
+            "chunk_spos_u1_004",
+            "chunk_spos_u3_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "disk scheduling",
+            "sstf",
+            "scan",
+            "seek time",
+            "elevator"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_001",
+          "subject": "CN",
+          "unit": "Unit 1",
+          "query": "Explain the 7 layers of the OSI reference model and compare with TCP/IP model.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.25,
+          "golden_chunk_ids": [
+            "chunk_cn_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u1_001",
+            "chunk_cn_u5_001",
+            "chunk_cn_u3_001",
+            "chunk_cn_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "osi",
+            "tcp/ip",
+            "physical",
+            "data link",
+            "transport"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_002",
+          "subject": "CN",
+          "unit": "Unit 1",
+          "query": "Compare star network topology and mesh network topology in terms of fault tolerance.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u1_002",
+            "chunk_spos_u5_002",
+            "chunk_cn_u1_001",
+            "chunk_cn_u3_001",
+            "chunk_cn_u3_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "network topologies",
+            "star topology",
+            "mesh topology",
+            "fault tolerance",
+            "switch"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_003",
+          "subject": "CN",
+          "unit": "Unit 2",
+          "query": "How does Cyclic Redundancy Check (CRC) detect transmission errors in data link frames?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u2_001",
+            "chunk_cn_u1_001",
+            "chunk_cn_u1_002",
+            "chunk_cn_u2_002",
+            "chunk_spos_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "cyclic redundancy check",
+            "crc",
+            "polynomial",
+            "generator polynomial",
+            "checksum"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_004",
+          "subject": "CN",
+          "unit": "Unit 2",
+          "query": "Compare Go-Back-N and Selective Repeat sliding window ARQ protocols.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6667,
+          "golden_chunk_ids": [
+            "chunk_cn_u2_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u2_002",
+            "chunk_cn_u4_001",
+            "chunk_cn_u5_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "sliding window",
+            "go-back-n",
+            "selective repeat",
+            "arq",
+            "retransmitted"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_005",
+          "subject": "CN",
+          "unit": "Unit 3",
+          "query": "Explain IPv4 classful addressing vs CIDR subnetting and subnet masks.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.5,
+          "golden_chunk_ids": [
+            "chunk_cn_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u3_001",
+            "chunk_cn_u1_001",
+            "chunk_cn_u5_001",
+            "chunk_cn_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "ipv4",
+            "subnetting",
+            "cidr",
+            "subnet mask",
+            "classful"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_006",
+          "subject": "CN",
+          "unit": "Unit 3",
+          "query": "Compare Distance Vector Routing and Link State Routing algorithms.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.2,
+          "golden_chunk_ids": [
+            "chunk_cn_u3_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u3_002",
+            "chunk_spos_u4_003",
+            "chunk_spos_u6_001",
+            "chunk_cn_u1_001",
+            "chunk_spos_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "distance vector",
+            "link state",
+            "bellman-ford",
+            "dijkstra",
+            "count-to-infinity"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_007",
+          "subject": "CN",
+          "unit": "Unit 4",
+          "query": "What are the main differences between TCP and UDP protocols?",
+          "recall_at_3": 0.0,
+          "recall_at_5": 1.0,
+          "mrr": 0.2,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_cn_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u1_001",
+            "chunk_cn_u5_001",
+            "chunk_spos_u1_004",
+            "chunk_cn_u2_002",
+            "chunk_cn_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "tcp",
+            "udp",
+            "connection-oriented",
+            "handshake",
+            "congestion control"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_008",
+          "subject": "CN",
+          "unit": "Unit 5",
+          "query": "Explain the role of DNS and DHCP protocols in the application layer.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.5,
+          "golden_chunk_ids": [
+            "chunk_cn_u5_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u5_001",
+            "chunk_cn_u1_001",
+            "chunk_cn_u2_002",
+            "chunk_cn_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "dns",
+            "dhcp",
+            "ip addresses",
+            "dora",
+            "application layer"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_001",
+          "subject": "DBMS",
+          "unit": "Unit 1",
+          "query": "Explain the Three-Schema Architecture of a database management system.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_dbms_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u4_001",
+            "chunk_spos_u1_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u2_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "three-schema",
+            "physical",
+            "logical",
+            "external",
+            "data independence"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_002",
+          "subject": "DBMS",
+          "unit": "Unit 1",
+          "query": "Describe the components of an Entity-Relationship (ER) diagram.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 1.0,
+          "golden_chunk_ids": [
+            "chunk_dbms_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u1_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "entity-relationship",
+            "entities",
+            "attributes",
+            "relationships",
+            "derived"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_003",
+          "subject": "DBMS",
+          "unit": "Unit 2",
+          "query": "What are the fundamental operations in relational algebra?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_dbms_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u2_001",
+            "chunk_spos_u1_003",
+            "chunk_spos_u4_001",
+            "chunk_cn_u1_001",
+            "chunk_cn_u2_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "relational algebra",
+            "selection",
+            "projection",
+            "cartesian product",
+            "union"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_004",
+          "subject": "DBMS",
+          "unit": "Unit 3",
+          "query": "Explain 1NF, 2NF, 3NF, and BCNF normal forms in database normalization.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.5,
+          "golden_chunk_ids": [
+            "chunk_dbms_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u3_001",
+            "chunk_toc_u3_001",
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "normalization",
+            "1nf",
+            "2nf",
+            "3nf",
+            "bcnf"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_005",
+          "subject": "DBMS",
+          "unit": "Unit 4",
+          "query": "Explain the ACID properties of a database transaction.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.5,
+          "golden_chunk_ids": [
+            "chunk_dbms_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u4_001",
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u3_001",
+            "chunk_dbms_u4_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "acid",
+            "atomicity",
+            "consistency",
+            "isolation",
+            "durability"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_006",
+          "subject": "DBMS",
+          "unit": "Unit 4",
+          "query": "How does Two-Phase Locking (2PL) guarantee serializability in transactions?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6667,
+          "golden_chunk_ids": [
+            "chunk_dbms_u4_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u4_002",
+            "chunk_cn_u1_002",
+            "chunk_dbms_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "two-phase locking",
+            "2pl",
+            "growing phase",
+            "shrinking phase",
+            "concurrency control"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_001",
+          "subject": "TOC",
+          "unit": "Unit 1",
+          "query": "Compare Deterministic Finite Automata (DFA) and Non-deterministic Finite Automata (NFA).",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u1_001",
+            "chunk_spos_u2_002",
+            "chunk_toc_u3_001",
+            "chunk_spos_u4_001",
+            "chunk_toc_u1_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "dfa",
+            "nfa",
+            "finite automata",
+            "subset construction",
+            "transition function"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_002",
+          "subject": "TOC",
+          "unit": "Unit 1",
+          "query": "What is the difference between Moore machines and Mealy machines?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.5,
+          "golden_chunk_ids": [
+            "chunk_toc_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u1_002",
+            "chunk_spos_u1_004",
+            "chunk_dbms_u2_001",
+            "chunk_toc_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "moore",
+            "mealy",
+            "output",
+            "states",
+            "transitions"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_003",
+          "subject": "TOC",
+          "unit": "Unit 2",
+          "query": "State the Pumping Lemma for regular languages and explain how it is used.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u2_001",
+            "chunk_spos_u2_002",
+            "chunk_cn_u3_002",
+            "chunk_toc_u4_001",
+            "chunk_spos_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "pumping lemma",
+            "regular languages",
+            "xyz",
+            "not regular"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_004",
+          "subject": "TOC",
+          "unit": "Unit 3",
+          "query": "Explain Context-Free Grammars (CFG) and Pushdown Automata (PDA).",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u3_001",
+            "chunk_spos_u2_002",
+            "chunk_spos_u3_001",
+            "chunk_spos_u5_002",
+            "chunk_toc_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "context-free grammars",
+            "cfg",
+            "pushdown automata",
+            "pda",
+            "stack"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_005",
+          "subject": "TOC",
+          "unit": "Unit 4",
+          "query": "Describe a Turing Machine and explain why the Halting Problem is undecidable.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u4_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u4_001",
+            "chunk_cn_u3_002",
+            "chunk_toc_u1_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "turing machine",
+            "halting problem",
+            "undecidable",
+            "tape",
+            "diagonalization"
+          ],
+          "has_relevant_chunk": true
+        }
+      ],
+      "failures": []
+    },
+    "hybrid": {
+      "dataset_name": "SPPU Engineering Core Evaluation Dataset",
+      "dataset_version": "1.0.0",
+      "corpus_version": "1.0.0",
+      "configuration_name": "hybrid",
+      "aggregate_metrics": {
+        "total_cases": 35,
+        "mean_recall_at_3": 1.0,
+        "mean_recall_at_5": 1.0,
+        "mean_mrr": 0.9857,
+        "mean_context_relevance": 0.4686,
+        "perfect_recall_at_3_count": 35,
+        "perfect_recall_at_5_count": 35,
+        "zero_mrr_count": 0
+      },
+      "case_scores": [
+        {
+          "case_id": "eval_spos_001",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "What is the difference between a linker and a loader in system programming?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.8,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_004",
+            "chunk_spos_u3_003",
+            "chunk_cn_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "linker",
+            "loader",
+            "object modules",
+            "executable",
+            "address resolution"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_002",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "Explain relocation in loaders and how memory addresses are adjusted.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_001",
+            "chunk_spos_u5_001",
+            "chunk_spos_u3_003",
+            "chunk_spos_u1_004"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "relocation",
+            "loaders",
+            "load origin",
+            "relocation bits"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_003",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "What databases are used by a macro processor during Pass 1 and Pass 2?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_003",
+            "chunk_spos_u1_004",
+            "chunk_dbms_u4_001",
+            "chunk_spos_u2_001",
+            "chunk_toc_u2_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "macro",
+            "macro processor",
+            "mnt",
+            "mdt",
+            "ala"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_004",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "Compare macros and subroutines in terms of code size and execution overhead.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_004"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_004",
+            "chunk_spos_u1_003",
+            "chunk_spos_u2_001",
+            "chunk_spos_u2_002",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "macro",
+            "subroutine",
+            "in-line",
+            "overhead",
+            "stack frame"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_005",
+          "subject": "SPOS",
+          "unit": "Unit 2",
+          "query": "List and explain the different phases of a compiler from source to target code.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u2_001",
+            "chunk_spos_u1_003",
+            "chunk_spos_u2_002",
+            "chunk_spos_u1_004",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "phases of a compiler",
+            "lexical analysis",
+            "syntax analysis",
+            "intermediate code",
+            "code generation"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_006",
+          "subject": "SPOS",
+          "unit": "Unit 2",
+          "query": "What is the role of a lexical analyzer or scanner in compilation?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u2_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u2_002",
+            "chunk_spos_u1_001",
+            "chunk_spos_u2_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_004"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "lexical analyzer",
+            "scanner",
+            "tokens",
+            "lexemes",
+            "lex"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_007",
+          "subject": "SPOS",
+          "unit": "Unit 2",
+          "query": "Differentiate between top-down parsing and bottom-up parsing techniques.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u2_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u2_003",
+            "chunk_spos_u1_004",
+            "chunk_spos_u2_001",
+            "chunk_spos_u2_002",
+            "chunk_cn_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "top-down",
+            "bottom-up",
+            "parse tree",
+            "ll(1)",
+            "shift-reduce"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_008",
+          "subject": "SPOS",
+          "unit": "Unit 3",
+          "query": "What information is stored inside a Process Control Block (PCB)?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u3_001",
+            "chunk_spos_u3_003",
+            "chunk_spos_u1_002",
+            "chunk_dbms_u4_001",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "process control block",
+            "pcb",
+            "program counter",
+            "process state",
+            "context switch"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_009",
+          "subject": "SPOS",
+          "unit": "Unit 3",
+          "query": "Compare CPU scheduling algorithms FCFS, SJF, and Round Robin.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u3_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u3_002",
+            "chunk_spos_u6_001",
+            "chunk_spos_u5_002",
+            "chunk_spos_u4_002",
+            "chunk_cn_u3_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "cpu scheduling",
+            "fcfs",
+            "sjf",
+            "round robin",
+            "time quantum"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_010",
+          "subject": "SPOS",
+          "unit": "Unit 3",
+          "query": "Explain inter-process communication (IPC) using shared memory and message passing.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u3_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u3_003",
+            "chunk_spos_u3_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u4_001",
+            "chunk_spos_u5_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "inter-process communication",
+            "ipc",
+            "shared memory",
+            "message queues",
+            "pipes"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_011",
+          "subject": "SPOS",
+          "unit": "Unit 4",
+          "query": "State the three requirements to solve the critical section problem in process synchronization.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u4_001",
+            "chunk_spos_u3_001",
+            "chunk_spos_u4_003",
+            "chunk_spos_u3_003",
+            "chunk_spos_u1_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "critical section",
+            "mutual exclusion",
+            "progress",
+            "bounded waiting",
+            "semaphores"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_012",
+          "subject": "SPOS",
+          "unit": "Unit 4",
+          "query": "What are the four Coffman conditions necessary for a deadlock to occur?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u4_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u4_002",
+            "chunk_spos_u4_003",
+            "chunk_cn_u2_002",
+            "chunk_spos_u1_003",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "deadlock",
+            "coffman",
+            "mutual exclusion",
+            "hold and wait",
+            "circular wait"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_013",
+          "subject": "SPOS",
+          "unit": "Unit 4",
+          "query": "How does Banker's algorithm achieve deadlock avoidance using safe state testing?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u4_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u4_003",
+            "chunk_spos_u4_002",
+            "chunk_spos_u4_001",
+            "chunk_spos_u3_002",
+            "chunk_spos_u3_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "banker's algorithm",
+            "deadlock avoidance",
+            "available",
+            "need",
+            "safe state"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_014",
+          "subject": "SPOS",
+          "unit": "Unit 5",
+          "query": "Explain paging in memory management and the role of the TLB.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u5_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u5_001",
+            "chunk_spos_u3_001",
+            "chunk_spos_u3_003",
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "paging",
+            "page table",
+            "mmu",
+            "frames",
+            "tlb"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_015",
+          "subject": "SPOS",
+          "unit": "Unit 5",
+          "query": "Compare FIFO, LRU, and Optimal page replacement algorithms and Belady's anomaly.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u5_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u5_002",
+            "chunk_spos_u3_002",
+            "chunk_spos_u6_001",
+            "chunk_spos_u5_001",
+            "chunk_cn_u3_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "page replacement",
+            "fifo",
+            "lru",
+            "belady's anomaly",
+            "optimal"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_016",
+          "subject": "SPOS",
+          "unit": "Unit 6",
+          "query": "Explain disk scheduling algorithms SSTF and SCAN for minimizing head seek time.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.2,
+          "golden_chunk_ids": [
+            "chunk_spos_u6_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u6_001",
+            "chunk_spos_u3_002",
+            "chunk_spos_u5_002",
+            "chunk_spos_u4_002",
+            "chunk_cn_u3_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "disk scheduling",
+            "sstf",
+            "scan",
+            "seek time",
+            "elevator"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_001",
+          "subject": "CN",
+          "unit": "Unit 1",
+          "query": "Explain the 7 layers of the OSI reference model and compare with TCP/IP model.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.2,
+          "golden_chunk_ids": [
+            "chunk_cn_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u1_001",
+            "chunk_cn_u5_001",
+            "chunk_cn_u4_001",
+            "chunk_cn_u3_001",
+            "chunk_spos_u3_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "osi",
+            "tcp/ip",
+            "physical",
+            "data link",
+            "transport"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_002",
+          "subject": "CN",
+          "unit": "Unit 1",
+          "query": "Compare star network topology and mesh network topology in terms of fault tolerance.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u1_002",
+            "chunk_cn_u1_001",
+            "chunk_cn_u3_002",
+            "chunk_spos_u5_002",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "network topologies",
+            "star topology",
+            "mesh topology",
+            "fault tolerance",
+            "switch"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_003",
+          "subject": "CN",
+          "unit": "Unit 2",
+          "query": "How does Cyclic Redundancy Check (CRC) detect transmission errors in data link frames?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u2_001",
+            "chunk_cn_u2_002",
+            "chunk_cn_u1_002",
+            "chunk_spos_u3_003",
+            "chunk_spos_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "cyclic redundancy check",
+            "crc",
+            "polynomial",
+            "generator polynomial",
+            "checksum"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_004",
+          "subject": "CN",
+          "unit": "Unit 2",
+          "query": "Compare Go-Back-N and Selective Repeat sliding window ARQ protocols.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u2_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u2_002",
+            "chunk_cn_u4_001",
+            "chunk_cn_u3_002",
+            "chunk_cn_u5_001",
+            "chunk_cn_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "sliding window",
+            "go-back-n",
+            "selective repeat",
+            "arq",
+            "retransmitted"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_005",
+          "subject": "CN",
+          "unit": "Unit 3",
+          "query": "Explain IPv4 classful addressing vs CIDR subnetting and subnet masks.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u3_001",
+            "chunk_cn_u1_001",
+            "chunk_cn_u5_001",
+            "chunk_cn_u4_001",
+            "chunk_spos_u1_004"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "ipv4",
+            "subnetting",
+            "cidr",
+            "subnet mask",
+            "classful"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_006",
+          "subject": "CN",
+          "unit": "Unit 3",
+          "query": "Compare Distance Vector Routing and Link State Routing algorithms.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u3_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u3_002",
+            "chunk_spos_u6_001",
+            "chunk_spos_u3_002",
+            "chunk_cn_u1_001",
+            "chunk_spos_u5_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "distance vector",
+            "link state",
+            "bellman-ford",
+            "dijkstra",
+            "count-to-infinity"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_007",
+          "subject": "CN",
+          "unit": "Unit 4",
+          "query": "What are the main differences between TCP and UDP protocols?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 0.5,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_cn_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u1_001",
+            "chunk_cn_u4_001",
+            "chunk_cn_u5_001",
+            "chunk_spos_u1_004",
+            "chunk_cn_u2_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "tcp",
+            "udp",
+            "connection-oriented",
+            "handshake",
+            "congestion control"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_008",
+          "subject": "CN",
+          "unit": "Unit 5",
+          "query": "Explain the role of DNS and DHCP protocols in the application layer.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u5_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u5_001",
+            "chunk_cn_u1_001",
+            "chunk_cn_u4_001",
+            "chunk_spos_u3_003",
+            "chunk_cn_u2_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "dns",
+            "dhcp",
+            "ip addresses",
+            "dora",
+            "application layer"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_001",
+          "subject": "DBMS",
+          "unit": "Unit 1",
+          "query": "Explain the Three-Schema Architecture of a database management system.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_dbms_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u4_001",
+            "chunk_spos_u2_001",
+            "chunk_spos_u1_001",
+            "chunk_dbms_u3_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "three-schema",
+            "physical",
+            "logical",
+            "external",
+            "data independence"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_002",
+          "subject": "DBMS",
+          "unit": "Unit 1",
+          "query": "Describe the components of an Entity-Relationship (ER) diagram.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_dbms_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u1_002",
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u2_001",
+            "chunk_dbms_u4_001",
+            "chunk_spos_u3_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "entity-relationship",
+            "entities",
+            "attributes",
+            "relationships",
+            "derived"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_003",
+          "subject": "DBMS",
+          "unit": "Unit 2",
+          "query": "What are the fundamental operations in relational algebra?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_dbms_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u2_001",
+            "chunk_dbms_u4_001",
+            "chunk_toc_u3_001",
+            "chunk_spos_u2_001",
+            "chunk_spos_u1_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "relational algebra",
+            "selection",
+            "projection",
+            "cartesian product",
+            "union"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_004",
+          "subject": "DBMS",
+          "unit": "Unit 3",
+          "query": "Explain 1NF, 2NF, 3NF, and BCNF normal forms in database normalization.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_dbms_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u3_001",
+            "chunk_toc_u3_001",
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u4_001",
+            "chunk_dbms_u2_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "normalization",
+            "1nf",
+            "2nf",
+            "3nf",
+            "bcnf"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_005",
+          "subject": "DBMS",
+          "unit": "Unit 4",
+          "query": "Explain the ACID properties of a database transaction.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_dbms_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u4_001",
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u3_001",
+            "chunk_dbms_u4_002",
+            "chunk_dbms_u2_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "acid",
+            "atomicity",
+            "consistency",
+            "isolation",
+            "durability"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_006",
+          "subject": "DBMS",
+          "unit": "Unit 4",
+          "query": "How does Two-Phase Locking (2PL) guarantee serializability in transactions?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.8,
+          "golden_chunk_ids": [
+            "chunk_dbms_u4_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u4_002",
+            "chunk_dbms_u4_001",
+            "chunk_cn_u1_002",
+            "chunk_spos_u4_002",
+            "chunk_spos_u4_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "two-phase locking",
+            "2pl",
+            "growing phase",
+            "shrinking phase",
+            "concurrency control"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_001",
+          "subject": "TOC",
+          "unit": "Unit 1",
+          "query": "Compare Deterministic Finite Automata (DFA) and Non-deterministic Finite Automata (NFA).",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u1_001",
+            "chunk_toc_u3_001",
+            "chunk_toc_u1_002",
+            "chunk_spos_u2_002",
+            "chunk_spos_u4_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "dfa",
+            "nfa",
+            "finite automata",
+            "subset construction",
+            "transition function"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_002",
+          "subject": "TOC",
+          "unit": "Unit 1",
+          "query": "What is the difference between Moore machines and Mealy machines?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u1_002",
+            "chunk_spos_u1_004",
+            "chunk_toc_u4_001",
+            "chunk_spos_u5_001",
+            "chunk_spos_u3_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "moore",
+            "mealy",
+            "output",
+            "states",
+            "transitions"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_003",
+          "subject": "TOC",
+          "unit": "Unit 2",
+          "query": "State the Pumping Lemma for regular languages and explain how it is used.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u2_001",
+            "chunk_spos_u2_002",
+            "chunk_spos_u3_001",
+            "chunk_toc_u3_001",
+            "chunk_toc_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "pumping lemma",
+            "regular languages",
+            "xyz",
+            "not regular"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_004",
+          "subject": "TOC",
+          "unit": "Unit 3",
+          "query": "Explain Context-Free Grammars (CFG) and Pushdown Automata (PDA).",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u3_001",
+            "chunk_spos_u2_002",
+            "chunk_spos_u3_001",
+            "chunk_toc_u1_001",
+            "chunk_spos_u2_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "context-free grammars",
+            "cfg",
+            "pushdown automata",
+            "pda",
+            "stack"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_005",
+          "subject": "TOC",
+          "unit": "Unit 4",
+          "query": "Describe a Turing Machine and explain why the Halting Problem is undecidable.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_toc_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u4_001",
+            "chunk_toc_u1_002",
+            "chunk_spos_u4_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u4_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "turing machine",
+            "halting problem",
+            "undecidable",
+            "tape",
+            "diagonalization"
+          ],
+          "has_relevant_chunk": true
+        }
+      ],
+      "failures": []
+    },
+    "hybrid_reranked": {
+      "dataset_name": "SPPU Engineering Core Evaluation Dataset",
+      "dataset_version": "1.0.0",
+      "corpus_version": "1.0.0",
+      "configuration_name": "hybrid_reranked",
+      "aggregate_metrics": {
+        "total_cases": 35,
+        "mean_recall_at_3": 0.9714,
+        "mean_recall_at_5": 1.0,
+        "mean_mrr": 0.9786,
+        "mean_context_relevance": 0.4686,
+        "perfect_recall_at_3_count": 34,
+        "perfect_recall_at_5_count": 35,
+        "zero_mrr_count": 0
+      },
+      "case_scores": [
+        {
+          "case_id": "eval_spos_001",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "What is the difference between a linker and a loader in system programming?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.8,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_001",
+            "chunk_spos_u1_004",
+            "chunk_spos_u1_002",
+            "chunk_spos_u3_003",
+            "chunk_cn_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "linker",
+            "loader",
+            "object modules",
+            "executable",
+            "address resolution"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_002",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "Explain relocation in loaders and how memory addresses are adjusted.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_001",
+            "chunk_spos_u5_001",
+            "chunk_spos_u3_003",
+            "chunk_spos_u1_004"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "relocation",
+            "loaders",
+            "load origin",
+            "relocation bits"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_003",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "What databases are used by a macro processor during Pass 1 and Pass 2?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_003",
+            "chunk_spos_u1_004",
+            "chunk_dbms_u4_001",
+            "chunk_toc_u2_001",
+            "chunk_spos_u2_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "macro",
+            "macro processor",
+            "mnt",
+            "mdt",
+            "ala"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_004",
+          "subject": "SPOS",
+          "unit": "Unit 1",
+          "query": "Compare macros and subroutines in terms of code size and execution overhead.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u1_004"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u1_004",
+            "chunk_spos_u1_003",
+            "chunk_spos_u2_001",
+            "chunk_spos_u2_002",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "macro",
+            "subroutine",
+            "in-line",
+            "overhead",
+            "stack frame"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_005",
+          "subject": "SPOS",
+          "unit": "Unit 2",
+          "query": "List and explain the different phases of a compiler from source to target code.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u2_001",
+            "chunk_spos_u1_003",
+            "chunk_spos_u2_002",
+            "chunk_spos_u1_004",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "phases of a compiler",
+            "lexical analysis",
+            "syntax analysis",
+            "intermediate code",
+            "code generation"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_006",
+          "subject": "SPOS",
+          "unit": "Unit 2",
+          "query": "What is the role of a lexical analyzer or scanner in compilation?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u2_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u2_002",
+            "chunk_spos_u2_001",
+            "chunk_spos_u1_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u1_004"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "lexical analyzer",
+            "scanner",
+            "tokens",
+            "lexemes",
+            "lex"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_007",
+          "subject": "SPOS",
+          "unit": "Unit 2",
+          "query": "Differentiate between top-down parsing and bottom-up parsing techniques.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u2_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u2_003",
+            "chunk_spos_u2_001",
+            "chunk_spos_u1_004",
+            "chunk_spos_u2_002",
+            "chunk_cn_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "top-down",
+            "bottom-up",
+            "parse tree",
+            "ll(1)",
+            "shift-reduce"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_008",
+          "subject": "SPOS",
+          "unit": "Unit 3",
+          "query": "What information is stored inside a Process Control Block (PCB)?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u3_001",
+            "chunk_spos_u3_003",
+            "chunk_spos_u1_002",
+            "chunk_dbms_u4_001",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "process control block",
+            "pcb",
+            "program counter",
+            "process state",
+            "context switch"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_009",
+          "subject": "SPOS",
+          "unit": "Unit 3",
+          "query": "Compare CPU scheduling algorithms FCFS, SJF, and Round Robin.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u3_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u3_002",
+            "chunk_spos_u6_001",
+            "chunk_spos_u5_002",
+            "chunk_spos_u4_002",
+            "chunk_cn_u3_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "cpu scheduling",
+            "fcfs",
+            "sjf",
+            "round robin",
+            "time quantum"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_010",
+          "subject": "SPOS",
+          "unit": "Unit 3",
+          "query": "Explain inter-process communication (IPC) using shared memory and message passing.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u3_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u3_003",
+            "chunk_spos_u4_001",
+            "chunk_spos_u5_001",
+            "chunk_spos_u3_001",
+            "chunk_spos_u1_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "inter-process communication",
+            "ipc",
+            "shared memory",
+            "message queues",
+            "pipes"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_011",
+          "subject": "SPOS",
+          "unit": "Unit 4",
+          "query": "State the three requirements to solve the critical section problem in process synchronization.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_spos_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u4_001",
+            "chunk_spos_u3_001",
+            "chunk_spos_u4_003",
+            "chunk_spos_u1_002",
+            "chunk_spos_u3_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "critical section",
+            "mutual exclusion",
+            "progress",
+            "bounded waiting",
+            "semaphores"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_012",
+          "subject": "SPOS",
+          "unit": "Unit 4",
+          "query": "What are the four Coffman conditions necessary for a deadlock to occur?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u4_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u4_002",
+            "chunk_spos_u4_003",
+            "chunk_cn_u2_002",
+            "chunk_spos_u1_003",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "deadlock",
+            "coffman",
+            "mutual exclusion",
+            "hold and wait",
+            "circular wait"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_013",
+          "subject": "SPOS",
+          "unit": "Unit 4",
+          "query": "How does Banker's algorithm achieve deadlock avoidance using safe state testing?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u4_003"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u4_003",
+            "chunk_spos_u4_002",
+            "chunk_spos_u3_002",
+            "chunk_spos_u4_001",
+            "chunk_spos_u3_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "banker's algorithm",
+            "deadlock avoidance",
+            "available",
+            "need",
+            "safe state"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_014",
+          "subject": "SPOS",
+          "unit": "Unit 5",
+          "query": "Explain paging in memory management and the role of the TLB.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u5_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u5_001",
+            "chunk_spos_u3_001",
+            "chunk_spos_u1_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u3_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "paging",
+            "page table",
+            "mmu",
+            "frames",
+            "tlb"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_015",
+          "subject": "SPOS",
+          "unit": "Unit 5",
+          "query": "Compare FIFO, LRU, and Optimal page replacement algorithms and Belady's anomaly.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_spos_u5_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u5_002",
+            "chunk_spos_u6_001",
+            "chunk_spos_u5_001",
+            "chunk_cn_u3_002",
+            "chunk_spos_u3_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "page replacement",
+            "fifo",
+            "lru",
+            "belady's anomaly",
+            "optimal"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_spos_016",
+          "subject": "SPOS",
+          "unit": "Unit 6",
+          "query": "Explain disk scheduling algorithms SSTF and SCAN for minimizing head seek time.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.2,
+          "golden_chunk_ids": [
+            "chunk_spos_u6_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_spos_u6_001",
+            "chunk_spos_u3_002",
+            "chunk_spos_u5_002",
+            "chunk_cn_u3_002",
+            "chunk_spos_u4_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "disk scheduling",
+            "sstf",
+            "scan",
+            "seek time",
+            "elevator"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_001",
+          "subject": "CN",
+          "unit": "Unit 1",
+          "query": "Explain the 7 layers of the OSI reference model and compare with TCP/IP model.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.2,
+          "golden_chunk_ids": [
+            "chunk_cn_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u1_001",
+            "chunk_cn_u4_001",
+            "chunk_cn_u5_001",
+            "chunk_cn_u3_001",
+            "chunk_spos_u3_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "osi",
+            "tcp/ip",
+            "physical",
+            "data link",
+            "transport"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_002",
+          "subject": "CN",
+          "unit": "Unit 1",
+          "query": "Compare star network topology and mesh network topology in terms of fault tolerance.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u1_002",
+            "chunk_cn_u1_001",
+            "chunk_cn_u3_002",
+            "chunk_spos_u5_002",
+            "chunk_spos_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "network topologies",
+            "star topology",
+            "mesh topology",
+            "fault tolerance",
+            "switch"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_003",
+          "subject": "CN",
+          "unit": "Unit 2",
+          "query": "How does Cyclic Redundancy Check (CRC) detect transmission errors in data link frames?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u2_001",
+            "chunk_cn_u1_002",
+            "chunk_cn_u2_002",
+            "chunk_spos_u3_003",
+            "chunk_spos_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "cyclic redundancy check",
+            "crc",
+            "polynomial",
+            "generator polynomial",
+            "checksum"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_004",
+          "subject": "CN",
+          "unit": "Unit 2",
+          "query": "Compare Go-Back-N and Selective Repeat sliding window ARQ protocols.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u2_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u2_002",
+            "chunk_cn_u4_001",
+            "chunk_cn_u3_002",
+            "chunk_cn_u5_001",
+            "chunk_cn_u1_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "sliding window",
+            "go-back-n",
+            "selective repeat",
+            "arq",
+            "retransmitted"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_005",
+          "subject": "CN",
+          "unit": "Unit 3",
+          "query": "Explain IPv4 classful addressing vs CIDR subnetting and subnet masks.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u3_001",
+            "chunk_cn_u1_001",
+            "chunk_cn_u5_001",
+            "chunk_cn_u4_001",
+            "chunk_spos_u1_004"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "ipv4",
+            "subnetting",
+            "cidr",
+            "subnet mask",
+            "classful"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_006",
+          "subject": "CN",
+          "unit": "Unit 3",
+          "query": "Compare Distance Vector Routing and Link State Routing algorithms.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u3_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u3_002",
+            "chunk_cn_u1_001",
+            "chunk_spos_u6_001",
+            "chunk_spos_u5_002",
+            "chunk_spos_u3_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "distance vector",
+            "link state",
+            "bellman-ford",
+            "dijkstra",
+            "count-to-infinity"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_007",
+          "subject": "CN",
+          "unit": "Unit 4",
+          "query": "What are the main differences between TCP and UDP protocols?",
+          "recall_at_3": 0.0,
+          "recall_at_5": 1.0,
+          "mrr": 0.25,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_cn_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u1_001",
+            "chunk_spos_u1_004",
+            "chunk_cn_u5_001",
+            "chunk_cn_u4_001",
+            "chunk_cn_u2_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "tcp",
+            "udp",
+            "connection-oriented",
+            "handshake",
+            "congestion control"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_cn_008",
+          "subject": "CN",
+          "unit": "Unit 5",
+          "query": "Explain the role of DNS and DHCP protocols in the application layer.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_cn_u5_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_cn_u5_001",
+            "chunk_cn_u1_001",
+            "chunk_cn_u4_001",
+            "chunk_cn_u2_002",
+            "chunk_spos_u3_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "dns",
+            "dhcp",
+            "ip addresses",
+            "dora",
+            "application layer"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_001",
+          "subject": "DBMS",
+          "unit": "Unit 1",
+          "query": "Explain the Three-Schema Architecture of a database management system.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_dbms_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u4_001",
+            "chunk_spos_u2_001",
+            "chunk_spos_u1_001",
+            "chunk_dbms_u3_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "three-schema",
+            "physical",
+            "logical",
+            "external",
+            "data independence"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_002",
+          "subject": "DBMS",
+          "unit": "Unit 1",
+          "query": "Describe the components of an Entity-Relationship (ER) diagram.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_dbms_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u1_002",
+            "chunk_dbms_u2_001",
+            "chunk_spos_u3_001",
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "entity-relationship",
+            "entities",
+            "attributes",
+            "relationships",
+            "derived"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_003",
+          "subject": "DBMS",
+          "unit": "Unit 2",
+          "query": "What are the fundamental operations in relational algebra?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_dbms_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u2_001",
+            "chunk_dbms_u4_001",
+            "chunk_toc_u3_001",
+            "chunk_spos_u1_003",
+            "chunk_spos_u2_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "relational algebra",
+            "selection",
+            "projection",
+            "cartesian product",
+            "union"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_004",
+          "subject": "DBMS",
+          "unit": "Unit 3",
+          "query": "Explain 1NF, 2NF, 3NF, and BCNF normal forms in database normalization.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_dbms_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u3_001",
+            "chunk_toc_u3_001",
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u4_001",
+            "chunk_dbms_u2_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "normalization",
+            "1nf",
+            "2nf",
+            "3nf",
+            "bcnf"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_005",
+          "subject": "DBMS",
+          "unit": "Unit 4",
+          "query": "Explain the ACID properties of a database transaction.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_dbms_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u4_001",
+            "chunk_dbms_u1_001",
+            "chunk_dbms_u3_001",
+            "chunk_dbms_u4_002",
+            "chunk_dbms_u2_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "acid",
+            "atomicity",
+            "consistency",
+            "isolation",
+            "durability"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_dbms_006",
+          "subject": "DBMS",
+          "unit": "Unit 4",
+          "query": "How does Two-Phase Locking (2PL) guarantee serializability in transactions?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.8,
+          "golden_chunk_ids": [
+            "chunk_dbms_u4_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_dbms_u4_002",
+            "chunk_dbms_u4_001",
+            "chunk_cn_u1_002",
+            "chunk_spos_u4_002",
+            "chunk_spos_u4_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "two-phase locking",
+            "2pl",
+            "growing phase",
+            "shrinking phase",
+            "concurrency control"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_001",
+          "subject": "TOC",
+          "unit": "Unit 1",
+          "query": "Compare Deterministic Finite Automata (DFA) and Non-deterministic Finite Automata (NFA).",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u1_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u1_001",
+            "chunk_toc_u3_001",
+            "chunk_spos_u2_002",
+            "chunk_toc_u1_002",
+            "chunk_spos_u4_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "dfa",
+            "nfa",
+            "finite automata",
+            "subset construction",
+            "transition function"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_002",
+          "subject": "TOC",
+          "unit": "Unit 1",
+          "query": "What is the difference between Moore machines and Mealy machines?",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u1_002"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u1_002",
+            "chunk_spos_u1_004",
+            "chunk_toc_u4_001",
+            "chunk_spos_u5_001",
+            "chunk_spos_u3_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "moore",
+            "mealy",
+            "output",
+            "states",
+            "transitions"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_003",
+          "subject": "TOC",
+          "unit": "Unit 2",
+          "query": "State the Pumping Lemma for regular languages and explain how it is used.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u2_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u2_001",
+            "chunk_spos_u2_002",
+            "chunk_spos_u3_001",
+            "chunk_toc_u3_001",
+            "chunk_toc_u4_001"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "pumping lemma",
+            "regular languages",
+            "xyz",
+            "not regular"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_004",
+          "subject": "TOC",
+          "unit": "Unit 3",
+          "query": "Explain Context-Free Grammars (CFG) and Pushdown Automata (PDA).",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.4,
+          "golden_chunk_ids": [
+            "chunk_toc_u3_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u3_001",
+            "chunk_spos_u2_002",
+            "chunk_toc_u1_001",
+            "chunk_spos_u3_001",
+            "chunk_spos_u2_003"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "context-free grammars",
+            "cfg",
+            "pushdown automata",
+            "pda",
+            "stack"
+          ],
+          "has_relevant_chunk": true
+        },
+        {
+          "case_id": "eval_toc_005",
+          "subject": "TOC",
+          "unit": "Unit 4",
+          "query": "Describe a Turing Machine and explain why the Halting Problem is undecidable.",
+          "recall_at_3": 1.0,
+          "recall_at_5": 1.0,
+          "mrr": 1.0,
+          "context_relevance": 0.6,
+          "golden_chunk_ids": [
+            "chunk_toc_u4_001"
+          ],
+          "retrieved_chunk_ids": [
+            "chunk_toc_u4_001",
+            "chunk_toc_u1_002",
+            "chunk_spos_u4_001",
+            "chunk_spos_u1_002",
+            "chunk_spos_u4_002"
+          ],
+          "missed_golden_chunk_ids": [],
+          "matched_concepts": [
+            "turing machine",
+            "halting problem",
+            "undecidable",
+            "tape",
+            "diagonalization"
+          ],
+          "has_relevant_chunk": true
+        }
+      ],
+      "failures": []
+    }
+  }
+}

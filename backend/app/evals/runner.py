@@ -1,5 +1,5 @@
 """
-Independent retrieval evaluation runner for ExamGPT Phase 5A.
+Independent retrieval evaluation runner for ExamGPT Phase 5A & 5B.
 Evaluates candidate retrieval results deterministically without invoking LLMs or external services.
 """
 
@@ -10,6 +10,7 @@ from app.evals.schemas import (
     EvalDataset,
     CaseMetricScore,
     EvalRunReport,
+    MultiConfigBenchmarkReport,
 )
 from app.evals.metrics import (
     calculate_recall_at_k,
@@ -81,6 +82,7 @@ class RetrievalEvalRunner:
         self,
         dataset: EvalDataset,
         retrieval_candidates: Dict[str, Sequence[Dict[str, Any]]],
+        configuration_name: str = "default",
     ) -> EvalRunReport:
         """
         Evaluate the entire dataset against a mapping of case_id -> list of retrieved chunks.
@@ -104,7 +106,48 @@ class RetrievalEvalRunner:
             dataset_name=dataset.dataset_name,
             dataset_version=dataset.version,
             corpus_version=dataset.corpus_version,
+            configuration_name=configuration_name,
             aggregate_metrics=aggregate,
             case_scores=case_scores,
             failures=failures,
+        )
+
+    def evaluate_multi_configurations(
+        self,
+        dataset: EvalDataset,
+        adapter: Any,
+        configurations: Sequence[str] = ("dense", "lexical", "hybrid", "hybrid_reranked"),
+        limit: int = 5,
+    ) -> MultiConfigBenchmarkReport:
+        """
+        Execute benchmark across all specified retrieval configurations using the provided adapter.
+        Collects ranked candidates for each case and evaluates each configuration.
+        """
+        reports: Dict[str, EvalRunReport] = {}
+
+        for config in configurations:
+            candidates_map: Dict[str, List[Dict[str, Any]]] = {}
+            for case in dataset.cases:
+                # Query retrieval adapter under this configuration
+                retrieved = adapter.retrieve(
+                    configuration=config,
+                    query=case.query,
+                    limit=limit,
+                )
+                candidates_map[case.case_id] = retrieved
+
+            # Evaluate configuration
+            report = self.evaluate_dataset(
+                dataset=dataset,
+                retrieval_candidates=candidates_map,
+                configuration_name=config,
+            )
+            reports[config] = report
+
+        return MultiConfigBenchmarkReport(
+            dataset_name=dataset.dataset_name,
+            dataset_version=dataset.version,
+            corpus_version=dataset.corpus_version,
+            total_cases=len(dataset.cases),
+            configuration_reports=reports,
         )
