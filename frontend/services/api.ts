@@ -242,5 +242,22 @@ export const api = {
       headers: getHeaders()
     });
     return handleResponse(res);
+  },
+
+  // --- PERSONALIZED LEARNING RECOMMENDATIONS (PHASE 7) ---
+  async getSubjectRecommendations(subjectId: string) {
+    const res = await fetch(`${BASE_URL}/analytics/subjects/${subjectId}/recommendations`, {
+      method: "GET",
+      headers: getHeaders()
+    });
+    return handleResponse(res);
+  },
+
+  async executeTopicAction(subjectId: string, topicId: string) {
+    const res = await fetch(`${BASE_URL}/analytics/subjects/${subjectId}/topics/${topicId}/action`, {
+      method: "POST",
+      headers: getHeaders()
+    });
+    return handleResponse(res);
   }
 };

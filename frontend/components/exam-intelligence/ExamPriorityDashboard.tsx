@@ -6,6 +6,7 @@ import {
   Layers,
   RefreshCw,
   Filter,
+  Compass,
 } from "lucide-react";
 import { api } from "../../services/api";
 import { SubjectExamPriorityResponse } from "./types";
@@ -13,9 +14,13 @@ import { TopicPriorityCard } from "./TopicPriorityCard";
 
 interface ExamPriorityDashboardProps {
   subjectId: string;
+  onNavigateToRecommendations?: () => void;
 }
 
-export const ExamPriorityDashboard: React.FC<ExamPriorityDashboardProps> = ({ subjectId }) => {
+export const ExamPriorityDashboard: React.FC<ExamPriorityDashboardProps> = ({
+  subjectId,
+  onNavigateToRecommendations,
+}) => {
   const [data, setData] = useState<SubjectExamPriorityResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -147,13 +152,25 @@ export const ExamPriorityDashboard: React.FC<ExamPriorityDashboardProps> = ({ su
           </p>
         </div>
 
-        <button
-          onClick={() => fetchPriorityData(subjectId)}
-          className="self-start sm:self-auto py-2 px-3.5 bg-white/5 hover:bg-white/10 text-xs font-semibold rounded-xl border border-white/5 flex items-center space-x-1.5 transition-colors"
-        >
-          <RefreshCw className="h-3.5 w-3.5 text-slate-400" />
-          <span>Refresh Analysis</span>
-        </button>
+        <div className="flex items-center space-x-2 self-start sm:self-auto">
+          {onNavigateToRecommendations && (
+            <button
+              onClick={onNavigateToRecommendations}
+              className="py-2 px-3.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-semibold rounded-xl flex items-center space-x-1.5 transition-all shadow-sm"
+            >
+              <Compass className="h-3.5 w-3.5" />
+              <span>Recommended Study Actions</span>
+            </button>
+          )}
+
+          <button
+            onClick={() => fetchPriorityData(subjectId)}
+            className="py-2 px-3.5 bg-white/5 hover:bg-white/10 text-xs font-semibold rounded-xl border border-white/5 flex items-center space-x-1.5 transition-colors"
+          >
+            <RefreshCw className="h-3.5 w-3.5 text-slate-400" />
+            <span>Refresh Analysis</span>
+          </button>
+        </div>
       </div>
 
       {/* Summary KPI Cards */}

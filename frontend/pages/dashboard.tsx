@@ -21,10 +21,12 @@ import {
   BookOpen,
   CheckCircle,
   HelpCircle,
-  HelpCircle as QuestionIcon
+  HelpCircle as QuestionIcon,
+  Compass
 } from "lucide-react";
 import { api } from "../services/api";
 import { ExamPriorityDashboard } from "../components/exam-intelligence/ExamPriorityDashboard";
+import { RecommendationList } from "../components/recommendations/RecommendationList";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -432,6 +434,7 @@ export default function Dashboard() {
               { id: "chat", name: "AI Study Copilot", icon: BrainCircuit },
               { id: "planner", name: "Study Planner", icon: CalendarDays },
               { id: "quizzes", name: "Practice Quizzes", icon: ListTodo },
+              { id: "recommendations", name: "Personalized Study", icon: Compass },
               { id: "priority", name: "Exam Priority", icon: Sparkles },
               { id: "analytics", name: "Performance Stats", icon: LineChart }
             ].map((tab) => {
@@ -1035,11 +1038,25 @@ export default function Dashboard() {
               </div>
             )}
 
+            {/* TAB CONTENT: PERSONALIZED LEARNING RECOMMENDATIONS */}
+            {activeTab === "recommendations" && activeSubject && (
+              <RecommendationList
+                key={activeSubject.id}
+                subjectId={activeSubject.id}
+                onNavigateToChat={(query) => {
+                  setActiveTab("chat");
+                  setNewQuery(query);
+                }}
+                onNavigateToExamPriority={() => setActiveTab("priority")}
+              />
+            )}
+
             {/* TAB CONTENT: EXAM PRIORITY INTELLIGENCE */}
             {activeTab === "priority" && activeSubject && (
               <ExamPriorityDashboard
                 key={activeSubject.id}
                 subjectId={activeSubject.id}
+                onNavigateToRecommendations={() => setActiveTab("recommendations")}
               />
             )}
 
