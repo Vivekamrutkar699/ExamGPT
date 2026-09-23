@@ -1,15 +1,28 @@
+import copy
 import math
 import uuid
 from dataclasses import dataclass
 from typing import Any, Optional, Sequence
+from fastapi import HTTPException, status
+from sqlalchemy import or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.models.pyq_topic import CanonicalTopic, QuestionVariant
+from app.models.question import Question
 from app.schemas.recommendation import (
+    MaintainActionOut,
+    PracticeResourceOut,
+    QuizActionOut,
     RecommendationAction,
-    TopicRecommendationOut,
+    ReviewActionOut,
+    ReviewChunkOut,
     SubjectRecommendationsOut,
+    TopicActionResponse,
+    TopicRecommendationOut,
 )
 from app.services.analytics import analytics_service
+from app.services.quiz import quiz_service
+from app.rag.hybrid_search import hybrid_searcher
 
 
 @dataclass(frozen=True)
@@ -274,6 +287,7 @@ class RecommendationService:
                 recommended_action=rec.recommended_action,
                 recommendation_reason=rec.recommendation_reason,
                 action_priority=rec.action_priority,
+                action_endpoint=f"/api/v1/analytics/subjects/{subject_id}/topics/{rec.topic_id}/action",
             )
             for rec in sorted_recommendations
         ]
@@ -284,6 +298,238 @@ class RecommendationService:
             total_recommendations=len(recommendation_outs),
             recommendations=recommendation_outs,
         )
+
+    async def execute_topic_action(
+        self,
+        db: AsyncSession,
+        user_id: uuid.UUID,
+        subject_id: uuid.UUID,
+        topic_id: uuid.UUID,
+    ) -> TopicActionResponse:
+        """
+        Executes the personalized learning action for a canonical topic.
+        Maintains student isolation and uses existing project infrastructure:
+        - PRACTICE: returns topic-linked questions with marks & evaluation submission endpoint.
+        - QUIZ: generates and saves a topic quiz worksheet via quiz_service.
+        - ASSESS: generates a diagnostic baseline assessment quiz via quiz_service.
+        - REVIEW: retrieves syllabus notes and grounded document chunks via hybrid_searcher.
+        - MAINTAIN: provides key takeaways, high-yield revision notes, and a refresher question.
+        """
+        # 1. Verify CanonicalTopic exists and belongs to subject_id
+        canonical_topic = await db.get(CanonicalTopic, topic_id)
+        if not canonical_topic or canonical_topic.subject_id != subject_id:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="The referenced Canonical Topic ID does not exist for this course subject.",
+            )
+
+        # 2. Get user's current Exam Priority report to deterministically resolve recommendation
+        report = await analytics_service.get_exam_priority_report(
+            db=db,
+            user_id=user_id,
+            subject_id=subject_id,
+        )
+
+        matching_topic = next((t for t in report.topics if t.topic_id == topic_id), None)
+        if matching_topic:
+            rec = derive_topic_recommendation(matching_topic)
+        else:
+            rec = derive_topic_recommendation(canonical_topic)
+
+        # 3. Action-specific execution
+        practice_data: Optional[list[PracticeResourceOut]] = None
+        quiz_data: Optional[QuizActionOut] = None
+        review_data: Optional[ReviewActionOut] = None
+        maintain_data: Optional[MaintainActionOut] = None
+        action_reason = rec.recommendation_reason
+
+        if rec.recommended_action == RecommendationAction.PRACTICE:
+            questions, scope = await self._get_topic_practice_questions(db, subject_id, canonical_topic)
+            if questions:
+                practice_data = [
+                    PracticeResourceOut(
+                        question_id=q.id,
+                        text=q.text,
+                        marks_weight=q.marks_weight,
+                        unit_tag=q.unit_tag,
+                        source_scope=scope,
+                        submission_endpoint="/api/v1/evaluations/",
+                    )
+                    for q in questions
+                ]
+            else:
+                practice_data = []
+                action_reason = (
+                    f"{rec.recommendation_reason} "
+                    f"(No practice questions are currently available for this topic in the repository.)"
+                )
+
+        elif rec.recommended_action in (RecommendationAction.QUIZ, RecommendationAction.ASSESS):
+            title_prefix = "Topic Quiz" if rec.recommended_action == RecommendationAction.QUIZ else "Diagnostic Assessment"
+            quiz = await quiz_service.generate_quiz(
+                db=db,
+                subject_id=subject_id,
+                title=f"{title_prefix}: {canonical_topic.canonical_label}",
+                quiz_type="MCQ",
+                unit_tag=canonical_topic.unit_tag,
+                topic_id=canonical_topic.id,
+            )
+            # Sanitize questions data to prevent exposing correct answers
+            sanitized_questions = []
+            for q in quiz.questions_data.get("questions", []):
+                q_copy = copy.deepcopy(q)
+                q_copy.pop("correct_answer", None)
+                q_copy.pop("explanation", None)
+                q_copy.pop("ideal_keywords", None)
+                sanitized_questions.append(q_copy)
+
+            quiz_data = QuizActionOut(
+                quiz_id=quiz.id,
+                title=quiz.title,
+                quiz_type=quiz.quiz_type,
+                total_questions=len(sanitized_questions),
+                questions=sanitized_questions,
+                submission_endpoint=f"/api/v1/quizzes/{quiz.id}/submit",
+            )
+
+        elif rec.recommended_action == RecommendationAction.REVIEW:
+            chunks = await self._get_review_chunks(db, subject_id, canonical_topic)
+            if chunks:
+                summary = (
+                    f"Retrieved {len(chunks)} grounded study context chunks for topic "
+                    f"'{canonical_topic.canonical_label}' from subject study materials."
+                )
+            else:
+                summary = (
+                    f"No uploaded document chunks found matching topic '{canonical_topic.canonical_label}' in this subject."
+                )
+            review_data = ReviewActionOut(
+                summary=summary,
+                key_concepts=[],
+                supporting_chunks=chunks,
+            )
+
+        elif rec.recommended_action == RecommendationAction.MAINTAIN:
+            questions, scope = await self._get_topic_practice_questions(db, subject_id, canonical_topic)
+            sample_q = (
+                PracticeResourceOut(
+                    question_id=questions[0].id,
+                    text=questions[0].text,
+                    marks_weight=questions[0].marks_weight,
+                    unit_tag=questions[0].unit_tag,
+                    source_scope=scope,
+                    submission_endpoint="/api/v1/evaluations/",
+                )
+                if questions
+                else None
+            )
+            mastery_pct = round(rec.student_mastery * 100) if rec.student_mastery is not None else 100
+            maintain_data = MaintainActionOut(
+                key_takeaways=[
+                    f"Demonstrated mastery on '{canonical_topic.canonical_label}' is {mastery_pct}%.",
+                    "Maintain current proficiency through periodic review intervals.",
+                ],
+                quick_revision_notes=[
+                    f"Topic: {canonical_topic.canonical_label}",
+                    f"Unit: {canonical_topic.unit_tag or 'Unassigned'}",
+                    "Status: Retain readiness; focus intensive practice on lower-mastery topics.",
+                ],
+                sample_question=sample_q,
+            )
+
+        return TopicActionResponse(
+            subject_id=subject_id,
+            topic_id=topic_id,
+            canonical_label=canonical_topic.canonical_label,
+            unit_tag=canonical_topic.unit_tag,
+            action=rec.recommended_action,
+            action_priority=rec.action_priority,
+            reason=action_reason,
+            practice_data=practice_data,
+            quiz_data=quiz_data,
+            review_data=review_data,
+            maintain_data=maintain_data,
+        )
+
+    async def _get_topic_practice_questions(
+        self,
+        db: AsyncSession,
+        subject_id: uuid.UUID,
+        topic: CanonicalTopic,
+    ) -> tuple[list[Question], str]:
+        """
+        Retrieves real practice questions linked to this canonical topic.
+        - First checks topic-linked questions (scope="topic").
+        - If none, checks unit-level questions (scope="unit").
+        - If none, returns ([], "none"). Never creates or persists synthetic questions.
+        """
+        stmt = (
+            select(Question)
+            .outerjoin(
+                QuestionVariant,
+                QuestionVariant.legacy_question_id == Question.id,
+            )
+            .where(
+                Question.subject_id == subject_id,
+                or_(
+                    QuestionVariant.topic_id == topic.id,
+                    Question.id == topic.compatibility_question_id,
+                ),
+            )
+            .order_by(Question.occurrences.desc())
+        )
+        res = await db.execute(stmt)
+        questions = list(res.scalars().unique().all())
+
+        if questions:
+            return questions, "topic"
+
+        if topic.unit_tag:
+            stmt_unit = (
+                select(Question)
+                .where(
+                    Question.subject_id == subject_id,
+                    Question.unit_tag == topic.unit_tag,
+                )
+                .order_by(Question.occurrences.desc())
+            )
+            res_unit = await db.execute(stmt_unit)
+            unit_questions = list(res_unit.scalars().all())
+            if unit_questions:
+                return unit_questions, "unit"
+
+        return [], "none"
+
+    async def _get_review_chunks(
+        self,
+        db: AsyncSession,
+        subject_id: uuid.UUID,
+        topic: CanonicalTopic,
+    ) -> list[ReviewChunkOut]:
+        """
+        Retrieves grounded notes and study chunks for topic review.
+        """
+        raw_chunks = await hybrid_searcher.sparse_search(
+            db=db,
+            query=topic.canonical_label,
+            subject_id=subject_id,
+            unit_tag=topic.unit_tag,
+            limit=4,
+        )
+        review_chunks: list[ReviewChunkOut] = []
+        for c in raw_chunks:
+            meta = c.get("metadata", {})
+            doc_cat = c.get("category", "study")
+            review_chunks.append(
+                ReviewChunkOut(
+                    chunk_id=str(c.get("chunk_id", "")),
+                    document_name=f"{doc_cat.capitalize()} Notes",
+                    page=meta.get("page") if isinstance(meta, dict) else 1,
+                    content=c.get("content", ""),
+                    unit_tag=c.get("unit_tag") or topic.unit_tag,
+                )
+            )
+        return review_chunks
 
 
 # Singleton recommendation service instance

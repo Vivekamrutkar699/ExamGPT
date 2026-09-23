@@ -1,8 +1,11 @@
 import uuid
 from typing import Optional, List, Dict, Any
 from fastapi import HTTPException, status
+from sqlalchemy import or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.models.pyq_topic import CanonicalTopic, QuestionVariant
+from app.models.question import Question
 from app.models.quiz import Quiz
 from app.schemas.quiz import QuizSubmission, QuizGradeOut
 from app.repositories.quiz import quiz_repository
@@ -77,11 +80,13 @@ class QuizService:
         subject_id: uuid.UUID,
         title: str,
         quiz_type: str = "MCQ",
-        unit_tag: Optional[str] = None
+        unit_tag: Optional[str] = None,
+        topic_id: Optional[uuid.UUID] = None,
     ) -> Quiz:
         """
         Retrieves context chunks from notes linked to subject,
         generates structured question objects, and saves them.
+        When topic_id is provided, prefers verified questions linked to that canonical topic.
         """
         # Call RAG engine to grab context for question synthesis
         answer, contexts = await rag_engine.get_grounded_answer(
@@ -92,9 +97,93 @@ class QuizService:
             limit=3
         )
 
-        # Synthesis questions list using custom mock generation fallback
-        # Can be expanded to call LLM dynamically in future phases
-        questions = self._generate_mock_questions(quiz_type)
+        questions: List[Dict[str, Any]] = []
+
+        if topic_id is not None:
+            # 1. Prefer questions associated with this canonical topic
+            stmt_topic = (
+                select(Question)
+                .outerjoin(
+                    QuestionVariant,
+                    QuestionVariant.legacy_question_id == Question.id,
+                )
+                .outerjoin(
+                    CanonicalTopic,
+                    CanonicalTopic.compatibility_question_id == Question.id,
+                )
+                .where(
+                    Question.subject_id == subject_id,
+                    or_(
+                        QuestionVariant.topic_id == topic_id,
+                        CanonicalTopic.id == topic_id,
+                    ),
+                )
+                .order_by(Question.occurrences.desc())
+            )
+            res_topic = await db.execute(stmt_topic)
+            topic_qs = list(res_topic.scalars().unique().all())
+
+            if topic_qs:
+                for idx, q in enumerate(topic_qs[:5]):
+                    if quiz_type == "MCQ":
+                        questions.append({
+                            "id": f"q_{q.id}",
+                            "question": q.text,
+                            "choices": {
+                                "A": f"Primary principle of {q.text[:40]}",
+                                "B": "Incomplete implementation missing key constraints",
+                                "C": "Alternative unrelated system mechanism",
+                                "D": "None of the above",
+                            },
+                            "correct_answer": "A",
+                            "explanation": f"Grounded in verified topic question: {q.text}",
+                        })
+                    else:
+                        words = [w for w in q.text.lower().split() if len(w) > 4][:5]
+                        questions.append({
+                            "id": f"short_{idx + 1}",
+                            "question": q.text,
+                            "ideal_keywords": words or ["concept", "mechanism"],
+                            "marks": q.marks_weight,
+                        })
+            elif unit_tag:
+                # 2. Unit-level fallback when no topic-specific questions exist
+                stmt_unit = (
+                    select(Question)
+                    .where(
+                        Question.subject_id == subject_id,
+                        Question.unit_tag == unit_tag,
+                    )
+                    .order_by(Question.occurrences.desc())
+                )
+                res_unit = await db.execute(stmt_unit)
+                unit_qs = list(res_unit.scalars().all())
+                for idx, q in enumerate(unit_qs[:5]):
+                    if quiz_type == "MCQ":
+                        questions.append({
+                            "id": f"q_{q.id}",
+                            "question": q.text,
+                            "choices": {
+                                "A": f"Primary principle of {q.text[:40]}",
+                                "B": "Incomplete implementation missing key constraints",
+                                "C": "Alternative unrelated system mechanism",
+                                "D": "None of the above",
+                            },
+                            "correct_answer": "A",
+                            "explanation": f"Grounded in unit question: {q.text}",
+                        })
+                    else:
+                        words = [w for w in q.text.lower().split() if len(w) > 4][:5]
+                        questions.append({
+                            "id": f"short_{idx + 1}",
+                            "question": q.text,
+                            "ideal_keywords": words or ["concept", "mechanism"],
+                            "marks": q.marks_weight,
+                        })
+
+        if not questions:
+            # Fallback to standard mock questions generator (preserves existing behavior)
+            questions = self._generate_mock_questions(quiz_type)
 
         questions_data = {
             "questions": questions

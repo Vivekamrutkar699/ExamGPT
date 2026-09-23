@@ -5,7 +5,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.api import deps
 from app.schemas.analytics import SubjectAnalyticsOut, SubjectExamPriorityOut
 from app.schemas.topic_performance import SubjectTopicPerformanceOut
-from app.schemas.recommendation import SubjectRecommendationsOut
+from app.schemas.recommendation import (
+    SubjectRecommendationsOut,
+    TopicActionResponse,
+)
 from app.services.analytics import analytics_service
 from app.services.student_performance import student_performance_service
 from app.services.recommendation import recommendation_service
@@ -112,4 +115,32 @@ async def get_subject_recommendations(
         db=db,
         user_id=current_user.id,
         subject_id=subject_id,
+    )
+
+
+@router.post("/subjects/{subject_id}/topics/{topic_id}/action", response_model=TopicActionResponse)
+@router.get("/subjects/{subject_id}/topics/{topic_id}/action", response_model=TopicActionResponse)
+async def execute_topic_recommendation_action(
+    subject_id: uuid.UUID,
+    topic_id: uuid.UUID,
+    db: AsyncSession = Depends(deps.get_db),
+    current_user: User = Depends(deps.get_current_user),
+):
+    """
+    Execute the personalized recommendation action for a specific canonical topic.
+    Returns practice questions, generated quizzes, review notes, or revision takeaways.
+    """
+    from app.models.subject import Subject
+    subject = await db.get(Subject, subject_id)
+    if not subject:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="The referenced Course Subject ID does not exist.",
+        )
+
+    return await recommendation_service.execute_topic_action(
+        db=db,
+        user_id=current_user.id,
+        subject_id=subject_id,
+        topic_id=topic_id,
     )
