@@ -55,6 +55,27 @@ class ChatRepository:
         )
         return list(result.scalars().all())
 
+    async def list_sessions_by_user_and_subject(
+        self,
+        db: AsyncSession,
+        user_id: uuid.UUID,
+        subject_id: uuid.UUID,
+        skip: int = 0,
+        limit: int = 100,
+    ) -> List[ChatSession]:
+        """List paginated chat sessions created by a user for a specific subject."""
+        result = await db.execute(
+            select(ChatSession)
+            .where(
+                ChatSession.user_id == user_id,
+                ChatSession.subject_id == subject_id,
+            )
+            .order_by(ChatSession.created_at.desc())
+            .offset(skip)
+            .limit(limit)
+        )
+        return list(result.scalars().all())
+
     async def add_message(
         self,
         db: AsyncSession,

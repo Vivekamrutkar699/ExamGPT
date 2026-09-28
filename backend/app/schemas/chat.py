@@ -34,3 +34,34 @@ class ChatSessionOut(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class ChatQueryRequest(BaseModel):
+    query: Optional[str] = None
+    content: Optional[str] = None
+
+
+class ChatHistoryItem(BaseModel):
+    id: uuid.UUID
+    query: str
+    response: str
+    citations: Optional[List[Dict[str, Any]]] = None
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+
+class ChatQueryResponse(BaseModel):
+    id: uuid.UUID
+    session_id: uuid.UUID
+    role: str = "assistant"
+    content: str
+    response: str
+    query: Optional[str] = None
+    citations: Optional[List[Dict[str, Any]]] = None
+    citations_json: Optional[List[Dict[str, Any]]] = None
+    created_at: datetime
+
+    class Config:
+        from_attributes = True

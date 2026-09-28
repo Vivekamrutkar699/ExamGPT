@@ -1,13 +1,16 @@
 import uuid
 from typing import List, Optional
 from fastapi import APIRouter, Depends, File, UploadFile, Form, status, HTTPException
+from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api import deps
 from app.schemas.document import DocumentOut
+from app.schemas.subject import SubjectCreate, SubjectOut
 from app.services.document import document_service
 from app.repositories.document import document_repository
 from app.models.user import User
+from app.models.subject import Subject
 
 router = APIRouter()
 
@@ -52,6 +55,52 @@ async def list_documents(
         subject_id=subject_id,
         category=category
     )
+
+
+@router.get("/subjects", response_model=List[SubjectOut])
+async def list_subjects(
+    db: AsyncSession = Depends(deps.get_db),
+    current_user: User = Depends(deps.get_current_user),
+):
+    """
+    Retrieve all registered course subjects.
+    Requires authenticated user context.
+    """
+    stmt = select(Subject).order_by(Subject.code.asc())
+    result = await db.execute(stmt)
+    return list(result.scalars().all())
+
+
+@router.post("/subjects", response_model=SubjectOut, status_code=status.HTTP_201_CREATED)
+async def create_subject(
+    subject_in: SubjectCreate,
+    db: AsyncSession = Depends(deps.get_db),
+    current_user: User = Depends(deps.get_current_user),
+):
+    """
+    Register a new course subject.
+    Requires authenticated user context.
+    Rejects duplicate subject codes with HTTP 409 Conflict.
+    """
+    # Check for existing code (case-insensitive)
+    stmt = select(Subject).where(func.lower(Subject.code) == subject_in.code.strip().lower())
+    existing = (await db.execute(stmt)).scalar_one_or_none()
+    if existing:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail=f"Subject with code '{subject_in.code}' already exists.",
+        )
+
+    subject = Subject(
+        code=subject_in.code.strip(),
+        name=subject_in.name.strip(),
+        semester=subject_in.semester,
+        branch=subject_in.branch.strip(),
+    )
+    db.add(subject)
+    await db.commit()
+    await db.refresh(subject)
+    return subject
 
 
 @router.get("/{document_id}", response_model=DocumentOut)

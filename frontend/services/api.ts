@@ -85,10 +85,11 @@ export const api = {
   // --- DOCUMENTS ---
   async uploadDocument(subjectId: string, file: File, category: string) {
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("subject_id", subjectId);
     formData.append("category", category);
+    formData.append("file", file);
 
-    const res = await fetch(`${BASE_URL}/documents/upload/${subjectId}`, {
+    const res = await fetch(`${BASE_URL}/documents/upload`, {
       method: "POST",
       headers: getHeaders(true),
       body: formData
@@ -97,7 +98,7 @@ export const api = {
   },
 
   async listDocuments(subjectId: string) {
-    const res = await fetch(`${BASE_URL}/documents/subject/${subjectId}`, {
+    const res = await fetch(`${BASE_URL}/documents/?subject_id=${subjectId}`, {
       method: "GET",
       headers: getHeaders()
     });
